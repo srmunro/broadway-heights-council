@@ -3,231 +3,492 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Broadway Heights Community Council | San Diego</title>
-  <meta name="description" content="Building community, celebrating culture, and empowering residents in Broadway Heights, San Diego. All means All.">
+  <title>Broadway Heights Community Council (BHCC) | Since 1991</title>
+  <meta name="description" content="Broadway Heights Community Council is dedicated to enriching and celebrating the quality of life, safety and beautification of the Broadway Heights Neighborhood while fostering a trusted gathering place to engage in dialogue, inquiry, and advocacy.">
+  <meta property="og:title" content="Broadway Heights Community Council (BHCC) | Since 1991">
+  <meta property="og:description" content="Broadway Heights Community Council is dedicated to enriching and celebrating the quality of life, safety and beautification of the Broadway Heights Neighborhood.">
+  <meta property="og:url" content="https://www.broadwayheightscouncil.org">
+  <meta property="og:site_name" content="BHCC">
+  <meta property="og:type" content="website">
+  <link rel="icon" sizes="192x192" href="https://static.wixstatic.com/media/9b9e6e_311f91ce3d684f748ac00eaab46b407a%7Emv2.png/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/9b9e6e_311f91ce3d684f748ac00eaab46b407a%7Emv2.png" type="image/png">
+  <link rel="shortcut icon" href="https://static.wixstatic.com/media/9b9e6e_311f91ce3d684f748ac00eaab46b407a%7Emv2.png/v1/fill/w_32%2Ch_32%2Clg_1%2Cusm_0.66_1.00_0.01/9b9e6e_311f91ce3d684f748ac00eaab46b407a%7Emv2.png" type="image/png">
+  <link rel="apple-touch-icon" href="https://static.wixstatic.com/media/9b9e6e_311f91ce3d684f748ac00eaab46b407a%7Emv2.png/v1/fill/w_180%2Ch_180%2Clg_1%2Cusm_0.66_1.00_0.01/9b9e6e_311f91ce3d684f748ac00eaab46b407a%7Emv2.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --blue: #2C5C7A; --blue-dark: #1e4258; --blue-light: #3a7199;
-      --gold: #E8B84F; --gold-dark: #d4a63a;
-      --brown: #A45F53; --cream: #F9F7F4; --cream-dark: #efe9e1;
-      --text: #2a2a2a; --text-light: #6b6b6b; --white: #ffffff;
-      --shadow: 0 2px 12px rgba(0,0,0,0.08); --shadow-lg: 0 4px 24px rgba(0,0,0,0.12);
-      --radius: 12px; --transition: 0.3s ease;
+      /* Exact Wix color palette from original site */
+      --color_11: rgb(249,247,244);  /* cream background */
+      --color_15: rgb(44,92,122);    /* blue - primary */
+      --color_18: rgb(164,95,83);    /* brown */
+      --color_23: rgb(232,184,79);   /* gold */
+      --color_12: rgb(58,57,54);     /* dark text */
+      --color_13: rgb(147,170,183);  /* light blue-gray */
+      --color_14: rgb(95,131,153);   /* medium blue */
+      --color_22: rgb(250,202,144);  /* light gold */
+      --color_16: rgb(252,211,199);  /* light peach */
+      --color_17: rgb(252,152,124);  /* peach */
+      --color_29: rgb(63,91,114);    /* dark blue */
+      --color_30: rgb(124,152,133);  /* sage green */
+      --color_38: rgb(198,208,214);  /* light blue-gray 2 */
+      --color_43: rgb(58,57,54);     /* dark text */
+
+      --blue: var(--color_15);
+      --blue-dark: var(--color_29);
+      --gold: var(--color_23);
+      --gold-light: var(--color_22);
+      --brown: var(--color_18);
+      --cream: var(--color_11);
+      --text: var(--color_12);
+      --text-light: var(--color_14);
+      --white: #ffffff;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+      --shadow-lg: 0 4px 24px rgba(0,0,0,0.12);
+      --radius: 12px;
+      --transition: 0.3s ease;
     }
-    body { font-family: 'Open Sans', sans-serif; background: var(--cream); color: var(--text); line-height: 1.6; }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    a { cursor: pointer; text-decoration: none; }
 
     /* ===== Header ===== */
-    .site-header { background: var(--blue); color: var(--white); padding: 1.5rem 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.15); position: sticky; top: 0; z-index: 100; }
-    .site-header .container { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
-    .site-header h1 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 700; letter-spacing: 0.03em; }
-    .site-header h1 a { color: var(--white); text-decoration: none; }
-    .site-header nav a { color: var(--cream); text-decoration: none; font-size: 0.95rem; font-weight: 600; margin-left: 1.5rem; transition: color var(--transition); }
-    .site-header nav a:hover { color: var(--gold); }
-    .site-header nav a.active { color: var(--gold); text-decoration: underline; }
-    .site-header nav a.donate-btn { background: var(--gold); color: var(--text); padding: 0.4rem 1rem; border-radius: 100px; font-weight: 700; }
-    .site-header nav a.donate-btn:hover { background: var(--gold-dark); color: var(--text); }
-
-    /* ===== Hero ===== */
-    .hero {
-      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 60%, var(--brown) 100%);
+    .site-header {
+      background: var(--blue);
       color: var(--white);
-      padding: 5rem 2rem 4rem;
-      text-align: center;
+      padding: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 1rem 2rem;
+    }
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .logo-area img {
+      width: 46px;
+      height: 46px;
+      border-radius: 4px;
+    }
+    .logo-area .site-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: var(--white);
+      line-height: 1.2;
+    }
+    .logo-area .site-name small {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 400;
+      opacity: 0.7;
+      letter-spacing: 0.05em;
+    }
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+    .main-nav a {
+      color: var(--cream);
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.5rem 0.85rem;
+      transition: color var(--transition);
+      letter-spacing: 0.03em;
+    }
+    .main-nav a:hover { color: var(--gold); }
+    .main-nav a.active { color: var(--gold); text-decoration: underline; }
+    .main-nav .nav-dropdown {
       position: relative;
+    }
+    .main-nav .nav-dropdown:hover .dropdown-menu {
+      display: block;
+      opacity: 1;
+    }
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--blue);
+      border-radius: 0 0 8px 8px;
+      padding: 0.5rem 0;
+      box-shadow: var(--shadow-lg);
+      display: none;
+      opacity: 0;
+      transition: opacity var(--transition);
+      min-width: 180px;
+      z-index: 101;
+    }
+    .dropdown-menu a {
+      display: block;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.85rem;
+      color: var(--cream);
+    }
+    .dropdown-menu a:hover { color: var(--gold); background: rgba(255,255,255,0.05); }
+    .nav-donate {
+      background: var(--gold);
+      color: var(--text) !important;
+      border-radius: 100px;
+      padding: 0.4rem 1.1rem !important;
+      font-weight: 700 !important;
+      margin-left: 0.5rem;
+    }
+    .nav-donate:hover { background: var(--gold-light); color: var(--text) !important; }
+
+    /* ===== Hero Section ===== */
+    .hero {
+      position: relative;
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 2rem;
       overflow: hidden;
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 40%, var(--brown) 100%);
+      color: var(--white);
     }
     .hero::before {
       content: '';
-      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(circle at 20% 80%, rgba(232, 184, 79, 0.12) 0%, transparent 50%),
-                  radial-gradient(circle at 80% 20%, rgba(164, 95, 83, 0.12) 0%, transparent 50%);
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse at 30% 70%, rgba(232, 184, 79, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 30%, rgba(164, 95, 83, 0.15) 0%, transparent 50%);
       pointer-events: none;
     }
-    .hero .hero-content { max-width: 800px; margin: 0 auto; position: relative; }
-    .hero .tagline {
-      display: inline-block;
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(4px);
-      padding: 0.35rem 1.1rem;
-      border-radius: 100px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      margin-bottom: 1.5rem;
-      border: 1px solid rgba(255,255,255,0.2);
-      text-transform: uppercase;
+    .hero-content {
+      max-width: 800px;
+      position: relative;
+      z-index: 1;
     }
     .hero h2 {
       font-family: 'Montserrat', sans-serif;
-      font-size: 3rem;
+      font-size: 3.5rem;
       font-weight: 700;
+      letter-spacing: 0.02em;
       margin-bottom: 1rem;
       line-height: 1.1;
     }
-    .hero p {
+    .hero .hero-tagline {
       font-size: 1.2rem;
+      font-weight: 400;
       opacity: 0.9;
       max-width: 600px;
-      margin: 0 auto 2rem;
+      margin: 0 auto;
+      line-height: 1.5;
     }
-    .hero .cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .hero .btn-primary {
-      background: var(--gold); color: var(--text);
-      padding: 0.9rem 2rem; border-radius: 100px;
-      text-decoration: none; font-weight: 700; font-size: 1.05rem;
-      transition: all var(--transition);
-    }
-    .hero .btn-primary:hover { background: var(--gold-dark); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
-    .hero .btn-secondary {
-      background: transparent; color: var(--white);
-      padding: 0.9rem 2rem; border-radius: 100px;
-      text-decoration: none; font-weight: 600; font-size: 1.05rem;
-      border: 2px solid rgba(255,255,255,0.4);
-      transition: all var(--transition);
-    }
-    .hero .btn-secondary:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
-
-    /* ===== Stats Bar ===== */
-    .stats-bar {
-      background: var(--white);
-      padding: 2rem;
-      box-shadow: var(--shadow);
-      max-width: 900px;
-      margin: -2rem auto 0;
-      border-radius: var(--radius);
-      position: relative;
-      z-index: 10;
+    .hero-cta {
+      margin-top: 2rem;
       display: flex;
-      justify-content: space-around;
+      gap: 1rem;
+      justify-content: center;
       flex-wrap: wrap;
-      gap: 1.5rem;
     }
-    .stat { text-align: center; }
-    .stat .stat-number { font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 700; color: var(--blue); }
-    .stat .stat-label { font-size: 0.85rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.05em; }
-
-    /* ===== Section ===== */
-    .section { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem; }
-    .section h3 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.75rem;
+    .hero-cta a {
+      padding: 0.8rem 2rem;
+      border-radius: 100px;
       font-weight: 700;
-      color: var(--blue-dark);
-      text-align: center;
-      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      transition: all var(--transition);
     }
-    .section .section-sub { text-align: center; color: var(--text-light); margin-bottom: 2.5rem; }
+    .hero-cta .btn-gold {
+      background: var(--gold);
+      color: var(--text);
+    }
+    .hero-cta .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .hero-cta .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.4);
+    }
+    .hero-cta .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
 
-    /* ===== Values Grid ===== */
+    /* ===== Stats Section ===== */
+    .stats-section {
+      background: var(--cream);
+      padding: 0;
+    }
+    .stats-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 3rem 2rem;
+      gap: 2rem;
+      text-align: center;
+    }
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .stat-item .stat-number {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--blue);
+      line-height: 1;
+    }
+    .stat-item .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-top: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ===== What We Do Section ===== */
+    .what-we-do {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    .what-we-do h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--blue);
+      text-align: center;
+      margin-bottom: 0.75rem;
+    }
+    .what-we-do .section-intro {
+      text-align: center;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      font-size: 1rem;
+    }
     .values-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 1.5rem;
     }
     .value-card {
       background: var(--white);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 1.75rem;
-      text-align: center;
-      transition: transform var(--transition);
+      padding: 2rem;
+      transition: transform var(--transition), box-shadow var(--transition);
     }
-    .value-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-    .value-card .value-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
-    .value-card h4 { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--blue-dark); margin-bottom: 0.5rem; }
-    .value-card p { font-size: 0.9rem; color: var(--text-light); }
-
-    /* ===== Upcoming Events Preview ===== */
-    .events-preview {
-      background: var(--cream-dark);
-      padding: 3rem 2rem;
+    .value-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
     }
-    .events-preview .section { padding: 0; }
-    .event-preview-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 1.5rem;
+    .value-card .value-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+      justify-content: center;
       margin-bottom: 1rem;
-      transition: transform var(--transition);
+      font-size: 1.75rem;
     }
-    .event-preview-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
-    .event-preview-card .date-badge {
-      background: var(--blue);
-      color: var(--white);
-      border-radius: var(--radius);
-      padding: 0.75rem 1rem;
-      text-align: center;
-      flex-shrink: 0;
-      min-width: 70px;
+    .value-card .value-icon.safety { background: #e8f5fd; }
+    .value-card .value-icon.unity { background: #e8f5ee; }
+    .value-card .value-icon.leadership { background: #fce8e8; }
+    .value-card .value-icon.beautification { background: #fff3e0; }
+    .value-card .value-icon.civic { background: #f3e8f5; }
+    .value-card h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--blue);
+      margin-bottom: 0.5rem;
     }
-    .event-preview-card .date-badge .day { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 700; line-height: 1; }
-    .event-preview-card .date-badge .month { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.9; }
-    .event-preview-card .event-info { flex: 1; }
-    .event-preview-card .event-info h4 { font-family: 'Montserrat', sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--blue-dark); margin-bottom: 0.25rem; }
-    .event-preview-card .event-info p { font-size: 0.88rem; color: var(--text-light); }
-    .event-preview-card .event-info .time { font-size: 0.82rem; color: var(--text-light); margin-top: 0.2rem; }
-    .event-preview-card .signup-btn {
-      background: var(--gold); color: var(--text);
-      padding: 0.5rem 1.25rem; border-radius: 100px;
-      text-decoration: none; font-weight: 700; font-size: 0.88rem;
-      flex-shrink: 0; transition: all var(--transition);
+    .value-card p {
+      font-size: 0.92rem;
+      color: var(--text-light);
+      line-height: 1.5;
     }
-    .event-preview-card .signup-btn:hover { background: var(--gold-dark); }
 
-    .view-all { text-align: center; margin-top: 1.5rem; }
-    .view-all a {
-      color: var(--blue); text-decoration: none; font-weight: 600;
-      display: inline-flex; align-items: center; gap: 0.4rem;
+    /* ===== How We Work / Get to Know Us ===== */
+    .how-we-work {
+      background: var(--white);
+      padding: 4rem 2rem;
+    }
+    .how-we-work-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .how-we-work .text-side h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 1rem;
+    }
+    .how-we-work .text-side p {
+      color: var(--text);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .how-we-work .text-side .learn-link {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: var(--blue);
+      font-weight: 600;
+      font-size: 0.95rem;
       transition: color var(--transition);
     }
-    .view-all a:hover { color: var(--gold-dark); }
-
-    /* ===== CTA Panel ===== */
-    .cta-panel {
+    .how-we-work .text-side .learn-link:hover { color: var(--brown); }
+    .how-we-work .image-side {
       background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+      border-radius: var(--radius);
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: var(--white);
       text-align: center;
-      padding: 3.5rem 2rem;
-      margin-top: 3rem;
+      padding: 2rem;
     }
-    .cta-panel h3 { color: var(--white); font-size: 1.75rem; margin-bottom: 0.75rem; }
-    .cta-panel p { opacity: 0.9; margin-bottom: 1.5rem; max-width: 500px; margin-left: auto; margin-right: auto; }
-    .cta-panel .btn-gold {
-      background: var(--gold); color: var(--text);
-      padding: 0.9rem 2rem; border-radius: 100px;
-      text-decoration: none; font-weight: 700; font-size: 1.05rem;
-      transition: all var(--transition);
+    .how-we-work .image-side .quote {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.3rem;
+      font-style: italic;
+      line-height: 1.4;
     }
-    .cta-panel .btn-gold:hover { background: var(--gold-dark); transform: translateY(-2px); }
+    .how-we-work .image-side .quote-author {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* ===== Newsletter / Collaborate Section ===== */
+    .collaborate {
+      background: var(--cream);
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .collaborate-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .collaborate h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 1rem;
+    }
+    .collaborate .newsletter-form {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+      max-width: 450px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .collaborate .newsletter-form input {
+      flex: 1;
+      padding: 0.8rem 1rem;
+      border: 2px solid #ddd;
+      border-radius: 100px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color var(--transition);
+    }
+    .collaborate .newsletter-form input:focus { border-color: var(--blue); }
+    .collaborate .newsletter-form button {
+      padding: 0.8rem 1.5rem;
+      background: var(--blue);
+      color: var(--white);
+      border: none;
+      border-radius: 100px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background var(--transition);
+    }
+    .collaborate .newsletter-form button:hover { background: var(--blue-dark); }
 
     /* ===== Footer ===== */
-    .site-footer { background: var(--blue-dark); color: var(--cream); padding: 2.5rem 2rem 2rem; }
-    .site-footer .container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; }
-    .site-footer h5 { font-family: 'Montserrat', sans-serif; font-size: 1rem; margin-bottom: 0.75rem; color: var(--gold); }
-    .site-footer a { color: var(--cream); text-decoration: none; font-size: 0.9rem; display: block; margin-bottom: 0.4rem; }
-    .site-footer a:hover { color: var(--gold); }
-    .site-footer .footer-bottom { text-align: center; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; opacity: 0.7; }
-    .site-footer .footer-bottom a { display: inline; color: var(--gold); }
+    .site-footer {
+      background: var(--blue);
+      color: var(--cream);
+      padding: 3rem 2rem 2rem;
+    }
+    .footer-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .footer-tagline {
+      font-size: 0.95rem;
+      opacity: 0.8;
+      max-width: 500px;
+      margin: 0 auto 1.5rem;
+    }
+    .footer-ein {
+      font-size: 0.85rem;
+      opacity: 0.6;
+      margin-bottom: 0.5rem;
+    }
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0;
+    }
+    .footer-nav a {
+      color: var(--cream);
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: color var(--transition);
+    }
+    .footer-nav a:hover { color: var(--gold); }
+    .footer-bottom {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.85rem;
+      opacity: 0.6;
+    }
 
     /* ===== Responsive ===== */
     @media (max-width: 768px) {
-      .site-header .container { flex-direction: column; text-align: center; }
-      .site-header nav a { margin: 0 0.75rem; font-size: 0.88rem; }
-      .hero h2 { font-size: 2rem; }
-      .hero p { font-size: 1rem; }
-      .stats-bar { flex-direction: column; gap: 1rem; padding: 1.5rem; }
-      .values-grid { grid-template-columns: 1fr 1fr; }
-      .event-preview-card { flex-direction: column; text-align: center; }
-      .event-preview-card .date-badge { min-width: auto; }
-      .section { padding: 2rem 1rem; }
+      .header-inner { flex-direction: column; text-align: center; gap: 0.5rem; }
+      .main-nav { flex-wrap: wrap; justify-content: center; gap: 0; }
+      .main-nav a { padding: 0.4rem 0.6rem; font-size: 0.82rem; }
+      .hero h2 { font-size: 2.25rem; }
+      .hero .hero-tagline { font-size: 1rem; }
+      .stats-inner { grid-template-columns: 1fr; gap: 1.5rem; padding: 2rem 1rem; }
+      .how-we-work-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+      .values-grid { grid-template-columns: 1fr; }
+      .what-we-do { padding: 2.5rem 1rem; }
+      .how-we-work { padding: 2.5rem 1rem; }
+      .collaborate { padding: 2.5rem 1rem; }
+      .newsletter-form { flex-direction: column; }
     }
   </style>
 </head>
@@ -235,14 +496,39 @@
 
   <!-- Header -->
   <header class="site-header">
-    <div class="container">
-      <h1><a href="index.html">Broadway Heights Community Council</a></h1>
-      <nav>
+    <div class="header-inner">
+      <div class="logo-area">
+        <img src="https://static.wixstatic.com/media/9b9e6e_5f356153803e43d98a8f513104c6b454~mv2.png/v1/fill/w_92,h_92,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Logo.png" alt="BHCC Logo">
+        <div class="site-name">
+          Broadway Heights Community Council
+          <small>Since 1991</small>
+        </div>
+      </div>
+      <nav class="main-nav">
         <a href="index.html" class="active">Home</a>
-        <a href="ourstory.html">Our Story</a>
-        <a href="events.html">Events</a>
-        <a href="join-the-council.html">Join</a>
-        <a href="donate.html" class="donate-btn">Donate</a>
+        <div class="nav-dropdown">
+          <a href="ourstory.html">About ▾</a>
+          <div class="dropdown-menu">
+            <a href="ourstory.html">Our Story</a>
+            <a href="mission-values.html">Mission &amp; Values</a>
+            <a href="copy-of-history.html">Leadership</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="events.html">News &amp; Events ▾</a>
+          <div class="dropdown-menu">
+            <a href="events.html">Events</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="join-the-council.html">Get Involved ▾</a>
+          <div class="dropdown-menu">
+            <a href="join-the-council.html">Join the Council</a>
+            <a href="copy-of-contact-us.html">Contact Us</a>
+            <a href="book-online.html">Schedule a Tour</a>
+          </div>
+        </div>
+        <a href="donate.html" class="nav-donate">Donate</a>
       </nav>
     </div>
   </header>
@@ -250,150 +536,113 @@
   <!-- Hero -->
   <section class="hero">
     <div class="hero-content">
-      <span class="tagline">All Means All</span>
-      <h2>Broadway Heights Community Council</h2>
-      <p>Building community, celebrating culture, and empowering residents in Broadway Heights, San Diego for over 20 years.</p>
-      <div class="cta-row">
-        <a href="events.html" class="btn-primary">Upcoming Events</a>
-        <a href="join-the-council.html" class="btn-secondary">Join the Council</a>
+      <h2>Broadway Heights</h2>
+      <p class="hero-tagline">Building a safer, stronger community for over two decades through leadership, collaboration, and civic pride.</p>
+      <div class="hero-cta">
+        <a href="events.html" class="btn-gold">Upcoming Events</a>
+        <a href="join-the-council.html" class="btn-outline">Get Involved</a>
       </div>
     </div>
   </section>
 
-  <!-- Stats Bar -->
-  <div class="stats-bar">
-    <div class="stat">
-      <div class="stat-number">20+</div>
-      <div class="stat-label">Years Serving</div>
+  <!-- Stats -->
+  <section class="stats-section">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <div class="stat-number">24</div>
+        <div class="stat-label">Years of Community Leadership</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">600+</div>
+        <div class="stat-label">Residents Actively Engaged</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">100+</div>
+        <div class="stat-label">Projects Completed Together</div>
+      </div>
     </div>
-    <div class="stat">
-      <div class="stat-number">30%</div>
-      <div class="stat-label">Drop in Crime</div>
-    </div>
-    <div class="stat">
-      <div class="stat-number">100+</div>
-      <div class="stat-label">Projects Completed</div>
-    </div>
-    <div class="stat">
-      <div class="stat-number">1,000+</div>
-      <div class="stat-label">Residents Engaged</div>
-    </div>
-  </div>
+  </section>
 
-  <!-- Values -->
-  <section class="section">
+  <!-- What We Do -->
+  <section class="what-we-do">
     <h3>What We Do</h3>
-    <p class="section-sub">Our mission is to unite, empower, and serve the Broadway Heights community</p>
+    <p class="section-intro">We create opportunities for learning and leadership right here in Broadway Heights. Our work is grounded in five core values that guide everything we do.</p>
     <div class="values-grid">
       <div class="value-card">
-        <div class="value-icon">🤝</div>
-        <h4>Unity</h4>
-        <p>Bringing neighbors together through events, meetings, and shared purpose.</p>
+        <div class="value-icon safety">🛡️</div>
+        <h4>Safety &amp; Trust</h4>
+        <p>Working with local partners to maintain our reputation as one of San Diego's safest neighborhoods through community collaboration.</p>
       </div>
       <div class="value-card">
-        <div class="value-icon">🛡️</div>
-        <h4>Safety</h4>
-        <p>Working with SDPD and residents to create a safer neighborhood.</p>
+        <div class="value-icon unity">🤝</div>
+        <h4>Unity &amp; Inclusion</h4>
+        <p>All means All — we bring together residents, businesses, nonprofits, schools, and organizations to build a stronger community.</p>
       </div>
       <div class="value-card">
-        <div class="value-icon">🌱</div>
-        <h4>Beautification</h4>
-        <p>The MLK Promenade and neighborhood improvement projects.</p>
+        <div class="value-icon leadership">📣</div>
+        <h4>Leadership &amp; Advocacy</h4>
+        <p>Being a strong voice for residents with government leaders, schools, and nonprofits to ensure our community's needs are heard.</p>
       </div>
       <div class="value-card">
-        <div class="value-icon">🗳️</div>
+        <div class="value-icon beautification">🌱</div>
+        <h4>Beautification &amp; Growth</h4>
+        <p>Creating clean, vibrant, and thriving streets that make Broadway Heights a place we're proud to call home.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon civic">⭐</div>
         <h4>Civic Pride</h4>
-        <p>Empowering residents to advocate for their community.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-icon">📚</div>
-        <h4>Leadership</h4>
-        <p>Developing the next generation through our Youth Council.</p>
+        <p>Building community pride and making Broadway Heights a model neighborhood that sets the standard for what communities can achieve.</p>
       </div>
     </div>
   </section>
 
-  <!-- Upcoming Events Preview -->
-  <section class="events-preview">
-    <div class="section">
-      <h3>Upcoming Events</h3>
-      <p class="section-sub">Join us at our next community gathering</p>
-
-      <a href="mexican-independence-day-2026.html" class="event-preview-card" style="text-decoration:none;color:inherit">
-        <div class="date-badge">
-          <div class="day">12</div>
-          <div class="month">Sep</div>
+  <!-- How We Work / Get to Know Us -->
+  <section class="how-we-work">
+    <div class="how-we-work-inner">
+      <div class="text-side">
+        <h3>How We Work</h3>
+        <p>Our "All means All" approach ensures every neighbor has a voice in shaping our community's future. Through partnerships with government leaders, community organizations, businesses, schools, and faith-based groups, we address the issues that matter most to residents.</p>
+        <p>We work together to make Broadway Heights a place where everyone can thrive.</p>
+        <a href="ourstory.html" class="learn-link">Learn about our mission →</a>
+      </div>
+      <div class="image-side">
+        <div>
+          <div class="quote">"All means All"</div>
+          <div class="quote-author">— Broadway Heights Community Council</div>
         </div>
-        <div class="event-info">
-          <h4>🇲🇽 Mexican Independence Day Celebration</h4>
-          <p>Martin Luther King Jr. Promenade</p>
-          <div class="time">📅 Saturday, Sept 12 · 11:00 AM – 3:00 PM · Free</div>
-        </div>
-        <span class="signup-btn">Sign Up</span>
-      </a>
-
-      <a href="register.html?event=communitea-2026" class="event-preview-card" style="text-decoration:none;color:inherit">
-        <div class="date-badge">
-          <div class="day">15</div>
-          <div class="month">Aug</div>
-        </div>
-        <div class="event-info">
-          <h4>🫖 COMMUNITEA is Back This Summer</h4>
-          <p>Brokers Gallery, 525 C St Suite 2</p>
-          <div class="time">📅 Saturday, Aug 15 · 2:00 PM – 4:00 PM</div>
-        </div>
-        <span class="signup-btn">Sign Up</span>
-      </a>
-
-      <a href="register.html?event=monthly-zoom-2026-08" class="event-preview-card" style="text-decoration:none;color:inherit">
-        <div class="date-badge">
-          <div class="day">27</div>
-          <div class="month">Aug</div>
-        </div>
-        <div class="event-info">
-          <h4>💻 Monthly Zoom Meeting</h4>
-          <p>Virtual — link sent after registration</p>
-          <div class="time">📅 Thursday, Aug 27 · 6:00 PM – 7:00 PM</div>
-        </div>
-        <span class="signup-btn">Sign Up</span>
-      </a>
-
-      <div class="view-all">
-        <a href="events.html">View All Events →</a>
       </div>
     </div>
   </section>
 
-  <!-- Donate CTA -->
-  <section class="cta-panel">
-    <h3>Support Our Community</h3>
-    <p>Your donation helps fund community events, youth programs, and neighborhood improvement projects.</p>
-    <a href="donate.html" class="btn-gold">Donate Today</a>
+  <!-- Collaborate / Newsletter -->
+  <section class="collaborate">
+    <div class="collaborate-inner">
+      <h3>Let's Collaborate</h3>
+      <p>Stay Updated with the Latest News and Developments</p>
+      <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thanks for subscribing!');">
+        <input type="email" placeholder="Your email address" required>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   </section>
 
   <!-- Footer -->
   <footer class="site-footer">
-    <div class="container">
-      <div>
-        <h5>Broadway Heights Community Council</h5>
-        <p style="font-size:0.9rem;opacity:0.8;max-width:300px">A registered 501(c)(3) nonprofit serving the Broadway Heights neighborhood in San Diego, California.</p>
-        <p style="font-size:0.85rem;opacity:0.6;margin-top:0.5rem">EIN: 90-0893585</p>
-      </div>
-      <div>
-        <h5>Quick Links</h5>
+    <div class="footer-inner">
+      <p class="footer-tagline">A safe, inclusive, and united neighborhood voice, working for over two decades to strengthen community pride and ensure a better quality of life for all.</p>
+      <p class="footer-ein">Broadway Heights Community Council is a registered 501(c)(3) nonprofit. EIN: 90-0893585</p>
+      <nav class="footer-nav">
         <a href="index.html">Home</a>
+        <a href="ourstory.html">Our Story</a>
+        <a href="mission-values.html">Mission &amp; Values</a>
         <a href="events.html">Events</a>
         <a href="join-the-council.html">Join the Council</a>
+        <a href="copy-of-contact-us.html">Contact Us</a>
         <a href="donate.html">Donate</a>
+      </nav>
+      <div class="footer-bottom">
+        &copy; Broadway Heights Community Council 2024
       </div>
-      <div>
-        <h5>Contact</h5>
-        <a href="mailto:info@broadwayheightscouncil.org">info@broadwayheightscouncil.org</a>
-        <p style="font-size:0.85rem;opacity:0.7;margin-top:0.3rem">3426 College Avenue<br>Suite 153113<br>San Diego, CA 92115</p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Broadway Heights Community Council · All Means All</p>
     </div>
   </footer>
 
