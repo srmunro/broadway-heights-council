@@ -18,43 +18,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* Exact Wix color palette */
     :root {
-      /* Exact Wix color palette from original site */
-      --color_11: rgb(249,247,244);  /* cream background */
-      --color_15: rgb(44,92,122);    /* blue - primary */
-      --color_18: rgb(164,95,83);    /* brown */
-      --color_23: rgb(232,184,79);   /* gold */
-      --color_12: rgb(58,57,54);     /* dark text */
-      --color_13: rgb(147,170,183);  /* light blue-gray */
-      --color_14: rgb(95,131,153);   /* medium blue */
-      --color_22: rgb(250,202,144);  /* light gold */
-      --color_16: rgb(252,211,199);  /* light peach */
-      --color_17: rgb(252,152,124);  /* peach */
-      --color_29: rgb(63,91,114);    /* dark blue */
-      --color_30: rgb(124,152,133);  /* sage green */
-      --color_38: rgb(198,208,214);  /* light blue-gray 2 */
-      --color_43: rgb(58,57,54);     /* dark text */
-
-      --blue: var(--color_15);
-      --blue-dark: var(--color_29);
-      --gold: var(--color_23);
-      --gold-light: var(--color_22);
-      --brown: var(--color_18);
-      --cream: var(--color_11);
-      --text: var(--color_12);
-      --text-light: var(--color_14);
+      --cream: rgb(249,247,244);       /* color_11/36 */
+      --blue: rgb(44,92,122);          /* color_15/37 */
+      --blue-dark: rgb(63,91,114);     /* color_29 */
+      --blue-gray: rgb(198,208,214);   /* color_38 */
+      --blue-medium: rgb(95,131,153);  /* color_14/40 */
+      --blue-light: rgb(147,170,183);  /* color_13/39 */
+      --brown: rgb(164,95,83);         /* color_18/41 */
+      --gold: rgb(232,184,79);         /* color_23 */
+      --gold-light: rgb(250,202,144);  /* color_22 */
+      --dark: rgb(58,57,54);           /* color_12/43 */
       --white: #ffffff;
-      --shadow: 0 2px 12px rgba(0,0,0,0.08);
-      --shadow-lg: 0 4px 24px rgba(0,0,0,0.12);
-      --radius: 12px;
-      --transition: 0.3s ease;
     }
     body {
       font-family: 'Open Sans', sans-serif;
       background: var(--cream);
-      color: var(--text);
+      color: var(--dark);
       line-height: 1.6;
-      min-height: 100vh;
     }
     a { cursor: pointer; text-decoration: none; }
 
@@ -62,374 +44,199 @@
     .site-header {
       background: var(--blue);
       color: var(--white);
-      padding: 0;
       box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      position: sticky; top: 0; z-index: 100;
     }
     .header-inner {
-      max-width: 980px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-      padding: 1rem 2rem;
+      max-width: 980px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; flex-wrap: wrap; padding: 1rem 2rem;
     }
-    .logo-area {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .logo-area img {
-      width: 46px;
-      height: 46px;
-      border-radius: 4px;
-    }
+    .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-area img { width: 46px; height: 46px; border-radius: 4px; }
     .logo-area .site-name {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      color: var(--white);
-      line-height: 1.2;
+      font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 700;
+      letter-spacing: 0.03em; color: var(--white); line-height: 1.2;
     }
     .logo-area .site-name small {
-      display: block;
-      font-size: 0.7rem;
-      font-weight: 400;
-      opacity: 0.7;
-      letter-spacing: 0.05em;
+      display: block; font-size: 0.7rem; font-weight: 400; opacity: 0.7; letter-spacing: 0.05em;
     }
-    .main-nav {
-      display: flex;
-      align-items: center;
-      gap: 0;
+    .main-nav { display: flex; align-items: center; }
+    .main-nav > a, .main-nav > .nav-dropdown > a {
+      color: var(--cream); font-size: 0.9rem; font-weight: 600;
+      padding: 0.5rem 0.85rem; transition: color 0.3s; letter-spacing: 0.03em;
+      font-family: 'Open Sans', sans-serif;
     }
-    .main-nav a {
-      color: var(--cream);
-      font-size: 0.9rem;
-      font-weight: 600;
-      padding: 0.5rem 0.85rem;
-      transition: color var(--transition);
-      letter-spacing: 0.03em;
-    }
-    .main-nav a:hover { color: var(--gold); }
-    .main-nav a.active { color: var(--gold); text-decoration: underline; }
-    .main-nav .nav-dropdown {
-      position: relative;
-    }
-    .main-nav .nav-dropdown:hover .dropdown-menu {
-      display: block;
-      opacity: 1;
-    }
+    .main-nav > a:hover, .main-nav > .nav-dropdown > a:hover { color: var(--gold); }
+    .main-nav > a.active, .main-nav > .nav-dropdown > a.active { color: var(--gold); text-decoration: underline; }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown:hover .dropdown-menu { display: block; }
     .dropdown-menu {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: var(--blue);
-      border-radius: 0 0 8px 8px;
-      padding: 0.5rem 0;
-      box-shadow: var(--shadow-lg);
-      display: none;
-      opacity: 0;
-      transition: opacity var(--transition);
-      min-width: 180px;
-      z-index: 101;
+      position: absolute; top: 100%; left: 0;
+      background: var(--blue); border-radius: 0 0 8px 8px; padding: 0.5rem 0;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.12); display: none; min-width: 180px; z-index: 101;
     }
-    .dropdown-menu a {
-      display: block;
-      padding: 0.6rem 1.2rem;
-      font-size: 0.85rem;
-      color: var(--cream);
-    }
+    .dropdown-menu a { display: block; padding: 0.6rem 1.2rem; font-size: 0.85rem; color: var(--cream); }
     .dropdown-menu a:hover { color: var(--gold); background: rgba(255,255,255,0.05); }
     .nav-donate {
-      background: var(--gold);
-      color: var(--text) !important;
-      border-radius: 100px;
-      padding: 0.4rem 1.1rem !important;
-      font-weight: 700 !important;
-      margin-left: 0.5rem;
+      background: var(--gold); color: var(--dark) !important;
+      border-radius: 100px; padding: 0.4rem 1.1rem !important;
+      font-weight: 700 !important; margin-left: 0.5rem;
     }
-    .nav-donate:hover { background: var(--gold-light); color: var(--text) !important; }
+    .nav-donate:hover { background: var(--gold-light); color: var(--dark) !important; }
 
-    /* ===== Hero Section ===== */
+    /* ===== Hero Section (Section 1 - transparent bg) ===== */
     .hero {
-      position: relative;
-      min-height: 500px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: var(--cream);
+      padding: 5rem 2rem 4rem;
       text-align: center;
-      padding: 4rem 2rem;
-      overflow: hidden;
-      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 40%, var(--brown) 100%);
-      color: var(--white);
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background:
-        radial-gradient(ellipse at 30% 70%, rgba(232, 184, 79, 0.12) 0%, transparent 50%),
-        radial-gradient(ellipse at 70% 30%, rgba(164, 95, 83, 0.15) 0%, transparent 50%);
-      pointer-events: none;
-    }
-    .hero-content {
-      max-width: 800px;
-      position: relative;
-      z-index: 1;
     }
     .hero h2 {
       font-family: 'Montserrat', sans-serif;
-      font-size: 3.5rem;
+      font-size: 65px;
       font-weight: 700;
-      letter-spacing: 0.02em;
+      color: var(--dark);
       margin-bottom: 1rem;
       line-height: 1.1;
+      letter-spacing: -0.01em;
     }
     .hero .hero-tagline {
-      font-size: 1.2rem;
-      font-weight: 400;
-      opacity: 0.9;
+      font-size: 16px;
+      color: var(--dark);
       max-width: 600px;
       margin: 0 auto;
-      line-height: 1.5;
+      line-height: 1.6;
     }
-    .hero-cta {
-      margin-top: 2rem;
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .hero-cta a {
-      padding: 0.8rem 2rem;
-      border-radius: 100px;
-      font-weight: 700;
-      font-size: 1rem;
-      transition: all var(--transition);
-    }
-    .hero-cta .btn-gold {
-      background: var(--gold);
-      color: var(--text);
-    }
-    .hero-cta .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
-    .hero-cta .btn-outline {
-      background: transparent;
-      color: var(--white);
-      border: 2px solid rgba(255,255,255,0.4);
-    }
-    .hero-cta .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
 
-    /* ===== Stats Section ===== */
-    .stats-section {
-      background: var(--cream);
-      padding: 0;
+    /* ===== Stats Section (Section 2 - light blue-gray bg, 3 cream columns) ===== */
+    .stats {
+      background: var(--blue-gray);
+      padding: 3rem 2rem;
     }
     .stats-inner {
-      max-width: 980px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      padding: 3rem 2rem;
-      gap: 2rem;
+      max-width: 980px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+      background: var(--blue-gray);
+    }
+    .stat-col {
+      background: var(--cream);
       text-align: center;
+      padding: 2.5rem 1.5rem;
     }
-    .stat-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .stat-item .stat-number {
+    .stat-number {
       font-family: 'Montserrat', sans-serif;
-      font-size: 3rem;
-      font-weight: 700;
-      color: var(--blue);
+      font-size: 65px; font-weight: 700; color: var(--dark);
       line-height: 1;
     }
-    .stat-item .stat-label {
-      font-size: 0.9rem;
-      color: var(--text-light);
+    .stat-mid {
+      font-size: 30px; color: var(--dark); font-weight: 600;
       margin-top: 0.5rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
+    }
+    .stat-label {
+      font-size: 20px; color: var(--dark); margin-top: 0.25rem;
     }
 
-    /* ===== What We Do Section ===== */
+    /* ===== What We Do Section (Section 3 - BLUE bg, white text) ===== */
     .what-we-do {
-      max-width: 980px;
-      margin: 0 auto;
+      background: var(--blue);
+      color: var(--white);
       padding: 4rem 2rem;
     }
+    .what-we-do-inner { max-width: 980px; margin: 0 auto; }
     .what-we-do h3 {
       font-family: 'Montserrat', sans-serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--blue);
-      text-align: center;
-      margin-bottom: 0.75rem;
+      font-size: 45px; font-weight: 700; text-align: center;
+      margin-bottom: 0.75rem; color: var(--white);
     }
     .what-we-do .section-intro {
-      text-align: center;
-      color: var(--text-light);
-      max-width: 600px;
-      margin: 0 auto 3rem;
-      font-size: 1rem;
+      text-align: center; max-width: 600px; margin: 0 auto 3rem;
+      font-size: 18px; opacity: 0.9;
     }
     .values-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
+      gap: 2rem;
     }
     .value-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 2rem;
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-    .value-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
+      text-align: center;
     }
     .value-card .value-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1rem;
-      font-size: 1.75rem;
+      width: 64px; height: 64px; margin: 0 auto 1rem;
+      display: flex; align-items: center; justify-content: center;
     }
-    .value-card .value-icon.safety { background: #e8f5fd; }
-    .value-card .value-icon.unity { background: #e8f5ee; }
-    .value-card .value-icon.leadership { background: #fce8e8; }
-    .value-card .value-icon.beautification { background: #fff3e0; }
-    .value-card .value-icon.civic { background: #f3e8f5; }
+    .value-card .value-icon svg { width: 48px; height: 48px; color: var(--white); opacity: 0.9; }
     .value-card h4 {
       font-family: 'Montserrat', sans-serif;
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--blue);
-      margin-bottom: 0.5rem;
+      font-size: 20px; font-weight: 600; margin-bottom: 0.5rem; color: var(--white);
     }
     .value-card p {
-      font-size: 0.92rem;
-      color: var(--text-light);
-      line-height: 1.5;
+      font-size: 16px; opacity: 0.85; line-height: 1.5;
     }
 
-    /* ===== How We Work / Get to Know Us ===== */
+    /* ===== How We Work Section (Section 4 - cream bg, brown left column) ===== */
     .how-we-work {
-      background: var(--white);
-      padding: 4rem 2rem;
+      background: var(--cream);
+      padding: 0;
     }
     .how-we-work-inner {
-      max-width: 980px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
+      max-width: 980px; margin: 0 auto;
+      display: grid; grid-template-columns: 488px 1fr; gap: 0;
+      min-height: 350px;
     }
-    .how-we-work .text-side h3 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--blue);
-      margin-bottom: 1rem;
-    }
-    .how-we-work .text-side p {
-      color: var(--text);
-      margin-bottom: 1rem;
-      font-size: 1rem;
-    }
-    .how-we-work .text-side .learn-link {
-      display: inline-block;
-      margin-top: 0.5rem;
-      color: var(--blue);
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: color var(--transition);
-    }
-    .how-we-work .text-side .learn-link:hover { color: var(--brown); }
-    .how-we-work .image-side {
-      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
-      border-radius: var(--radius);
-      min-height: 300px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .how-we-work .left-col {
+      background: var(--brown);
       color: var(--white);
-      text-align: center;
-      padding: 2rem;
+      padding: 3rem 2.5rem;
     }
-    .how-we-work .image-side .quote {
+    .how-we-work .left-col h3 {
       font-family: 'Montserrat', sans-serif;
-      font-size: 1.3rem;
-      font-style: italic;
-      line-height: 1.4;
+      font-size: 45px; font-weight: 700; margin-bottom: 1rem;
     }
-    .how-we-work .image-side .quote-author {
-      margin-top: 1rem;
-      font-size: 0.9rem;
-      opacity: 0.8;
+    .how-we-work .left-col .subtitle {
+      font-size: 20px; font-weight: 600; margin-bottom: 1rem; opacity: 0.9;
+    }
+    .how-we-work .left-col p {
+      font-size: 14px; margin-bottom: 1rem; opacity: 0.85; line-height: 1.6;
+    }
+    .how-we-work .learn-link {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      margin-top: 0.5rem; color: var(--white); font-weight: 600;
+      font-size: 14px; text-decoration: underline;
+    }
+    .how-we-work .right-col {
+      background: var(--cream);
+      padding: 3rem 2.5rem;
+      display: flex; align-items: center;
+    }
+    .how-we-work .right-col p {
+      font-size: 16px; color: var(--dark); line-height: 1.6;
     }
 
-    /* ===== Newsletter / Collaborate Section ===== */
+    /* ===== Newsletter / Collaborate (footer area) ===== */
     .collaborate {
       background: var(--cream);
-      padding: 4rem 2rem;
+      padding: 3rem 2rem;
       text-align: center;
-    }
-    .collaborate-inner {
-      max-width: 600px;
-      margin: 0 auto;
     }
     .collaborate h3 {
       font-family: 'Montserrat', sans-serif;
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: var(--blue);
-      margin-bottom: 1rem;
+      font-size: 24px; font-weight: 700; color: var(--dark); margin-bottom: 0.5rem;
     }
-    .collaborate .newsletter-form {
-      display: flex;
-      gap: 0.5rem;
-      margin-top: 1.5rem;
-      max-width: 450px;
-      margin-left: auto;
-      margin-right: auto;
+    .collaborate p { color: var(--dark); margin-bottom: 1.5rem; }
+    .newsletter-form {
+      display: flex; gap: 0.5rem; max-width: 400px; margin: 0 auto;
     }
-    .collaborate .newsletter-form input {
-      flex: 1;
-      padding: 0.8rem 1rem;
-      border: 2px solid #ddd;
-      border-radius: 100px;
-      font-family: 'Open Sans', sans-serif;
-      font-size: 0.95rem;
-      outline: none;
-      transition: border-color var(--transition);
+    .newsletter-form input {
+      flex: 1; padding: 0.7rem 1rem; border: 1px solid #ccc; border-radius: 0;
+      font-family: 'Open Sans', sans-serif; font-size: 0.9rem; outline: none;
     }
-    .collaborate .newsletter-form input:focus { border-color: var(--blue); }
-    .collaborate .newsletter-form button {
-      padding: 0.8rem 1.5rem;
-      background: var(--blue);
-      color: var(--white);
-      border: none;
-      border-radius: 100px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: background var(--transition);
+    .newsletter-form input:focus { border-color: var(--blue); }
+    .newsletter-form button {
+      padding: 0.7rem 1.5rem; background: var(--blue); color: var(--white);
+      border: none; font-family: 'Montserrat', sans-serif; font-weight: 600;
+      font-size: 0.85rem; cursor: pointer; transition: background 0.3s;
     }
-    .collaborate .newsletter-form button:hover { background: var(--blue-dark); }
+    .newsletter-form button:hover { background: var(--blue-dark); }
 
     /* ===== Footer ===== */
     .site-footer {
@@ -437,57 +244,35 @@
       color: var(--cream);
       padding: 3rem 2rem 2rem;
     }
-    .footer-inner {
-      max-width: 980px;
-      margin: 0 auto;
-      text-align: center;
-    }
+    .footer-inner { max-width: 980px; margin: 0 auto; text-align: center; }
     .footer-tagline {
-      font-size: 0.95rem;
-      opacity: 0.8;
-      max-width: 500px;
-      margin: 0 auto 1.5rem;
+      font-size: 0.95rem; opacity: 0.8; max-width: 500px; margin: 0 auto 1.5rem;
     }
-    .footer-ein {
-      font-size: 0.85rem;
-      opacity: 0.6;
-      margin-bottom: 0.5rem;
-    }
+    .footer-ein { font-size: 0.85rem; opacity: 0.6; margin-bottom: 0.5rem; }
     .footer-nav {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      margin: 1.5rem 0;
+      display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin: 1.5rem 0;
     }
-    .footer-nav a {
-      color: var(--cream);
-      font-size: 0.88rem;
-      font-weight: 600;
-      transition: color var(--transition);
-    }
+    .footer-nav a { color: var(--cream); font-size: 0.88rem; font-weight: 600; transition: color 0.3s; }
     .footer-nav a:hover { color: var(--gold); }
     .footer-bottom {
-      margin-top: 1.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      font-size: 0.85rem;
-      opacity: 0.6;
+      margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.85rem; opacity: 0.6;
     }
 
     /* ===== Responsive ===== */
     @media (max-width: 768px) {
       .header-inner { flex-direction: column; text-align: center; gap: 0.5rem; }
-      .main-nav { flex-wrap: wrap; justify-content: center; gap: 0; }
-      .main-nav a { padding: 0.4rem 0.6rem; font-size: 0.82rem; }
-      .hero h2 { font-size: 2.25rem; }
-      .hero .hero-tagline { font-size: 1rem; }
-      .stats-inner { grid-template-columns: 1fr; gap: 1.5rem; padding: 2rem 1rem; }
-      .how-we-work-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+      .main-nav { flex-wrap: wrap; justify-content: center; }
+      .main-nav > a, .main-nav > .nav-dropdown > a { padding: 0.4rem 0.6rem; font-size: 0.82rem; }
+      .hero h2 { font-size: 36px; }
+      .stats-inner { grid-template-columns: 1fr; }
+      .stat-number { font-size: 48px; }
       .values-grid { grid-template-columns: 1fr; }
       .what-we-do { padding: 2.5rem 1rem; }
-      .how-we-work { padding: 2.5rem 1rem; }
-      .collaborate { padding: 2.5rem 1rem; }
+      .what-we-do h3 { font-size: 32px; }
+      .how-we-work-inner { grid-template-columns: 1fr; }
+      .how-we-work .left-col { padding: 2rem 1.5rem; }
+      .how-we-work .right-col { padding: 2rem 1.5rem; }
       .newsletter-form { flex-direction: column; }
     }
   </style>
@@ -533,96 +318,96 @@
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- Section 1: Hero (cream bg, centered text) -->
   <section class="hero">
-    <div class="hero-content">
-      <h2>Broadway Heights</h2>
-      <p class="hero-tagline">Building a safer, stronger community for over two decades through leadership, collaboration, and civic pride.</p>
-      <div class="hero-cta">
-        <a href="events.html" class="btn-gold">Upcoming Events</a>
-        <a href="join-the-council.html" class="btn-outline">Get Involved</a>
-      </div>
-    </div>
+    <h2>Broadway Heights</h2>
+    <p class="hero-tagline">Building a safer, stronger community for over two decades through leadership, collaboration, and civic pride.</p>
   </section>
 
-  <!-- Stats -->
-  <section class="stats-section">
+  <!-- Section 2: Stats (blue-gray bg, 3 cream columns) -->
+  <section class="stats">
     <div class="stats-inner">
-      <div class="stat-item">
+      <div class="stat-col">
         <div class="stat-number">24</div>
-        <div class="stat-label">Years of Community Leadership</div>
+        <div class="stat-mid">years</div>
+        <div class="stat-label">of community leadership</div>
       </div>
-      <div class="stat-item">
+      <div class="stat-col">
         <div class="stat-number">600+</div>
-        <div class="stat-label">Residents Actively Engaged</div>
+        <div class="stat-mid">Residents</div>
+        <div class="stat-label">actively engaged</div>
       </div>
-      <div class="stat-item">
+      <div class="stat-col">
         <div class="stat-number">100+</div>
-        <div class="stat-label">Projects Completed Together</div>
+        <div class="stat-mid">Projects</div>
+        <div class="stat-label">completed together</div>
       </div>
     </div>
   </section>
 
-  <!-- What We Do -->
+  <!-- Section 3: What We Do (BLUE bg, white text) -->
   <section class="what-we-do">
-    <h3>What We Do</h3>
-    <p class="section-intro">We create opportunities for learning and leadership right here in Broadway Heights. Our work is grounded in five core values that guide everything we do.</p>
-    <div class="values-grid">
-      <div class="value-card">
-        <div class="value-icon safety">🛡️</div>
-        <h4>Safety &amp; Trust</h4>
-        <p>Working with local partners to maintain our reputation as one of San Diego's safest neighborhoods through community collaboration.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-icon unity">🤝</div>
-        <h4>Unity &amp; Inclusion</h4>
-        <p>All means All — we bring together residents, businesses, nonprofits, schools, and organizations to build a stronger community.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-icon leadership">📣</div>
-        <h4>Leadership &amp; Advocacy</h4>
-        <p>Being a strong voice for residents with government leaders, schools, and nonprofits to ensure our community's needs are heard.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-icon beautification">🌱</div>
-        <h4>Beautification &amp; Growth</h4>
-        <p>Creating clean, vibrant, and thriving streets that make Broadway Heights a place we're proud to call home.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-icon civic">⭐</div>
-        <h4>Civic Pride</h4>
-        <p>Building community pride and making Broadway Heights a model neighborhood that sets the standard for what communities can achieve.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- How We Work / Get to Know Us -->
-  <section class="how-we-work">
-    <div class="how-we-work-inner">
-      <div class="text-side">
-        <h3>How We Work</h3>
-        <p>Our "All means All" approach ensures every neighbor has a voice in shaping our community's future. Through partnerships with government leaders, community organizations, businesses, schools, and faith-based groups, we address the issues that matter most to residents.</p>
-        <p>We work together to make Broadway Heights a place where everyone can thrive.</p>
-        <a href="ourstory.html" class="learn-link">Learn about our mission →</a>
-      </div>
-      <div class="image-side">
-        <div>
-          <div class="quote">"All means All"</div>
-          <div class="quote-author">— Broadway Heights Community Council</div>
+    <div class="what-we-do-inner">
+      <h3>What we do</h3>
+      <p class="section-intro">We create opportunities for learning and leadership right here in Broadway Heights. Our work is grounded in five core values that guide everything we do.</p>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L3 7v6c0 5 3.5 8 9 9 5.5-1 9-4 9-9V7l-9-5z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <h4>Safety &amp; Trust</h4>
+          <p>Working with local partners to maintain our reputation as one of San Diego's safest neighborhoods through community collaboration.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h4>Unity &amp; Inclusion</h4>
+          <p>All means All — we bring together residents, businesses, nonprofits, schools, and organizations to build a stronger community.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+          </div>
+          <h4>Leadership &amp; Advocacy</h4>
+          <p>Being a strong voice for residents with government leaders, schools, and nonprofits to ensure our community's needs are heard.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v6m0 0c-2 0-4 2-4 4s2 4 4 4 4-2 4-4-2-4-4-4zm0 8v12M5 22h14"/></svg>
+          </div>
+          <h4>Beautification &amp; Growth</h4>
+          <p>Creating clean, vibrant, and thriving streets that make Broadway Heights a place we're proud to call home.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h4>Civic Pride</h4>
+          <p>Building community pride and making Broadway Heights a model neighborhood that sets the standard for what communities can achieve.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Collaborate / Newsletter -->
-  <section class="collaborate">
-    <div class="collaborate-inner">
-      <h3>Let's Collaborate</h3>
-      <p>Stay Updated with the Latest News and Developments</p>
-      <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thanks for subscribing!');">
-        <input type="email" placeholder="Your email address" required>
-        <button type="submit">Submit</button>
-      </form>
+  <!-- Section 4: How We Work (cream bg, brown left column) -->
+  <section class="how-we-work">
+    <div class="how-we-work-inner">
+      <div class="left-col">
+        <h3>How We Work</h3>
+        <div class="subtitle">Get to Know Us</div>
+        <p>Our "All means All" approach ensures every neighbor has a voice in shaping our community's future. Through partnerships with government leaders, community organizations, businesses, schools, and faith-based groups, we address the issues that matter most to residents.</p>
+        <p>We work together to make Broadway Heights a place where everyone can thrive.</p>
+        <a href="mission-values.html" class="learn-link">Learn about our mission →</a>
+      </div>
+      <div class="right-col">
+        <p>Let's Collaborate</p>
+        <p style="margin-top:0.5rem;font-size:14px;color:var(--blue-medium)">Stay Updated with the Latest News and Developments</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thanks for submitting!');" style="margin-top:1rem;max-width:100%">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
   </section>
 
