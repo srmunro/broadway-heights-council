@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Event Registration | Broadway Heights Community Council</title>
+  <meta name="description" content="Register for upcoming Broadway Heights Community Council events.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #2C5C7A;
+      --blue-dark: #1e4258;
+      --blue-light: #3a7199;
+      --gold: #E8B84F;
+      --gold-dark: #d4a63a;
+      --brown: #A45F53;
+      --cream: #F9F7F4;
+      --cream-dark: #efe9e1;
+      --text: #2a2a2a;
+      --text-light: #6b6b6b;
+      --white: #ffffff;
+      --success: #2d8659;
+      --success-light: #e8f5ee;
+      --error: #c63838;
+      --error-light: #fce8e8;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+      --shadow-lg: 0 4px 24px rgba(0,0,0,0.12);
+      --radius: 12px;
+      --transition: 0.3s ease;
+    }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ===== Header ===== */
+    .site-header {
+      background: var(--blue);
+      color: var(--white);
+      padding: 1.5rem 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .site-header .container {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; flex-wrap: wrap;
+    }
+    .site-header h1 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 700; letter-spacing: 0.03em; }
+    .site-header h1 a { color: var(--white); text-decoration: none; }
+    .site-header nav a {
+      color: var(--cream); text-decoration: none; font-size: 0.95rem; font-weight: 600;
+      margin-left: 1.5rem; transition: color var(--transition);
+    }
+    .site-header nav a:hover { color: var(--gold); }
+    .site-header nav a.active { color: var(--gold); text-decoration: underline; }
+
+    /* ===== Page Layout ===== */
+    .page-wrap { max-width: 700px; margin: 0 auto; padding: 2.5rem 2rem; }
+
+    /* ===== Back Link ===== */
+    .back-link {
+      color: var(--blue); text-decoration: none; font-weight: 600; font-size: 0.9rem;
+      display: inline-flex; align-items: center; gap: 0.4rem; margin-bottom: 1.5rem;
+      transition: color var(--transition);
+    }
+    .back-link:hover { color: var(--gold-dark); }
+    .back-link svg { width: 16px; height: 16px; }
+
+    /* ===== Event Summary Card ===== */
+    .event-summary {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 0;
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+    .event-summary .date-bar {
+      background: var(--blue);
+      color: var(--white);
+      padding: 1rem 1.5rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .event-summary .date-bar .day { font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 700; line-height: 1; }
+    .event-summary .date-bar .month { font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.9; }
+    .event-summary .date-bar .year { font-size: 0.85rem; opacity: 0.7; margin-left: auto; }
+    .event-summary .event-info { padding: 1.25rem 1.5rem; }
+    .event-summary h2 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--blue-dark); margin-bottom: 0.5rem; }
+    .event-summary .meta-row { display: flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; color: var(--text-light); margin-bottom: 0.3rem; }
+    .event-summary .meta-row svg { width: 14px; height: 14px; opacity: 0.6; flex-shrink: 0; }
+
+    /* ===== Registration Form ===== */
+    .form-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2rem;
+    }
+    .form-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--blue-dark);
+      margin-bottom: 0.5rem;
+    }
+    .form-card .form-intro {
+      font-size: 0.92rem;
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+    .form-group label .required { color: var(--error); }
+    .form-group .hint { font-size: 0.8rem; color: var(--text-light); font-weight: 400; margin-top: 0.2rem; }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.7rem 0.9rem;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1rem;
+      color: var(--text);
+      background: var(--white);
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(44, 92, 122, 0.12);
+    }
+    .form-group input.error,
+    .form-group select.error,
+    .form-group textarea.error {
+      border-color: var(--error);
+      box-shadow: 0 0 0 3px rgba(198, 56, 56, 0.1);
+    }
+    .form-group .error-msg {
+      font-size: 0.8rem; color: var(--error); margin-top: 0.25rem; display: none;
+    }
+    .form-group.has-error .error-msg { display: block; }
+
+    .form-row { display: flex; gap: 1rem; }
+    .form-row .form-group { flex: 1; }
+
+    /* ===== Attendee Counter ===== */
+    .attendee-counter {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--cream);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      border: 2px solid #ddd;
+    }
+    .attendee-counter .counter-btn {
+      width: 40px; height: 40px;
+      border: none;
+      border-radius: 50%;
+      background: var(--blue);
+      color: var(--white);
+      font-size: 1.3rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background var(--transition);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .attendee-counter .counter-btn:hover { background: var(--blue-light); }
+    .attendee-counter .counter-btn:active { transform: scale(0.95); }
+    .attendee-counter .counter-value {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--blue-dark);
+      min-width: 30px;
+      text-align: center;
+    }
+    .attendee-counter .counter-label {
+      font-size: 0.9rem; color: var(--text-light); flex: 1;
+    }
+
+    /* ===== Checkbox ===== */
+    .checkbox-group {
+      display: flex; align-items: flex-start; gap: 0.6rem;
+      margin-bottom: 1.25rem;
+    }
+    .checkbox-group input[type="checkbox"] {
+      width: 20px; height: 20px;
+      accent-color: var(--blue);
+      flex-shrink: 0; margin-top: 2px;
+      cursor: pointer;
+    }
+    .checkbox-group label { font-size: 0.88rem; color: var(--text); cursor: pointer; line-height: 1.5; }
+    .checkbox-group a { color: var(--blue); text-decoration: underline; }
+
+    /* ===== Submit Button ===== */
+    .submit-btn {
+      width: 100%;
+      padding: 1rem 2rem;
+      background: var(--gold);
+      color: var(--text);
+      border: none;
+      border-radius: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .submit-btn:hover { background: var(--gold-dark); transform: translateY(-1px); box-shadow: var(--shadow-lg); }
+    .submit-btn:active { transform: translateY(0); }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    /* ===== Success State ===== */
+    .success-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 3rem 2rem;
+      text-align: center;
+      display: none;
+    }
+    .success-card .check-icon {
+      width: 72px; height: 72px;
+      background: var(--success-light);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+    .success-card .check-icon svg { width: 36px; height: 36px; color: var(--success); }
+    .success-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; color: var(--success); margin-bottom: 0.5rem; }
+    .success-card p { color: var(--text-light); margin-bottom: 1.5rem; }
+    .success-card .registration-details {
+      background: var(--cream);
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      margin: 1rem 0 1.5rem;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+    .success-card .registration-details strong { color: var(--blue-dark); }
+    .success-card .btn-secondary {
+      display: inline-block;
+      padding: 0.7rem 1.5rem;
+      background: var(--blue);
+      color: var(--white);
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background var(--transition);
+    }
+    .success-card .btn-secondary:hover { background: var(--blue-light); }
+
+    /* ===== Footer ===== */
+    .site-footer {
+      background: var(--blue-dark);
+      color: var(--cream);
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+    }
+    .site-footer a { color: var(--gold); text-decoration: none; }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .site-header .container { flex-direction: column; text-align: center; }
+      .site-header nav a { margin: 0 0.75rem; font-size: 0.88rem; }
+      .page-wrap { padding: 1.5rem 1rem; }
+      .form-card { padding: 1.5rem; }
+      .form-row { flex-direction: column; gap: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <h1><a href="../index.html">Broadway Heights Community Council</a></h1>
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="../events.html" class="active">Events</a>
+        <a href="../join-the-council.html">Join</a>
+        <a href="../donate.html">Donate</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-wrap">
+
+    <!-- Back Link -->
+    <a href="../events.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Back to Events
+    </a>
+
+    <!-- Event Summary (populated by JS) -->
+    <div class="event-summary" id="event-summary">
+      <div class="date-bar">
+        <div>
+          <div class="day" id="evt-day">--</div>
+          <div class="month" id="evt-month">---</div>
+        </div>
+        <div class="year" id="evt-year">----</div>
+      </div>
+      <div class="event-info">
+        <h2 id="evt-title">Event Registration</h2>
+        <div class="meta-row" id="evt-time-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span id="evt-time">--</span>
+        </div>
+        <div class="meta-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span id="evt-location">--</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Registration Form -->
+    <div class="form-card" id="form-card">
+      <h3>Sign Up for This Event</h3>
+      <p class="form-intro">Fill out the form below to reserve your spot. We'll send a confirmation with event details.</p>
+
+      <form id="registration-form" onsubmit="return handleSubmit(event)">
+
+        <!-- Full Name -->
+        <div class="form-group" id="fg-name">
+          <label for="name">Full Name <span class="required">*</span></label>
+          <input type="text" id="name" name="name" required placeholder="Jane Doe" autocomplete="name">
+          <div class="error-msg">Please enter your full name.</div>
+        </div>
+
+        <!-- Email + Phone -->
+        <div class="form-row">
+          <div class="form-group" id="fg-email">
+            <label for="email">Email <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required placeholder="jane@example.com" autocomplete="email">
+            <div class="error-msg">Please enter a valid email address.</div>
+          </div>
+          <div class="form-group" id="fg-phone">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="(619) 555-0100" autocomplete="tel">
+            <div class="error-msg">Please enter a valid phone number.</div>
+          </div>
+        </div>
+
+        <!-- Address -->
+        <div class="form-group" id="fg-address">
+          <label for="address">Street Address <span class="required">*</span></label>
+          <input type="text" id="address" name="address" required placeholder="123 Broadway St, San Diego, CA 92114" autocomplete="street-address">
+          <div class="error-msg">Please enter your street address.</div>
+        </div>
+
+        <!-- Number of Attendees -->
+        <div class="form-group">
+          <label>How many people will be attending? (including yourself) <span class="required">*</span></label>
+          <div class="attendee-counter">
+            <button type="button" class="counter-btn" onclick="adjustAttendees(-1)" aria-label="Decrease attendees">−</button>
+            <span class="counter-value" id="attendee-count">1</span>
+            <button type="button" class="counter-btn" onclick="adjustAttendees(1)" aria-label="Increase attendees">+</button>
+            <span class="counter-label">attendee(s)</span>
+          </div>
+          <input type="hidden" id="attendees" name="attendees" value="1">
+        </div>
+
+        <!-- Names of additional attendees -->
+        <div class="form-group" id="fg-additional-names" style="display:none">
+          <label for="additional-names">Names of additional attendees</label>
+          <textarea id="additional-names" name="additional_names" rows="3" placeholder="List the names of people attending with you (optional)"></textarea>
+          <div class="hint">One name per line, or separate with commas.</div>
+        </div>
+
+        <!-- Volunteer checkbox -->
+        <div class="checkbox-group">
+          <input type="checkbox" id="volunteer" name="volunteer">
+          <label for="volunteer">I'm interested in volunteering to help with this event or future BHCC events.</label>
+        </div>
+
+        <!-- Newsletter checkbox -->
+        <div class="checkbox-group">
+          <input type="checkbox" id="newsletter" name="newsletter" checked>
+          <label for="newsletter">Send me email updates about future BHCC events and community news. (We respect your privacy — we'll never share your information.)</label>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="submit-btn" id="submit-btn">Sign Me Up!</button>
+      </form>
+    </div>
+
+    <!-- Success Card (shown after submit) -->
+    <div class="success-card" id="success-card">
+      <div class="check-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h3>You're Registered!</h3>
+      <p id="success-message">We'll see you at the event. A confirmation has been sent to your email.</p>
+      <div class="registration-details" id="reg-details"></div>
+      <a href="../events.html" class="btn-secondary">Back to Events</a>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>&copy; 2026 Broadway Heights Community Council &middot; <a href="mailto:info@broadwayheightscouncil.org">info@broadwayheightscouncil.org</a></p>
+  </footer>
+
+  <script>
+    // ===== Event data (populated from query param or direct edit) =====
+    // To use: register.html?event=communitea-2026
+    // Or manually set the event details below.
+
+    const eventCatalog = {
+      'mexican-independence-day-2026': {
+        title: 'Mexican Independence Day Celebration',
+        date: '2026-09-12',
+        time: '11:00 AM – 3:00 PM',
+        location: 'Martin Luther King Jr. Promenade, 2399 M.L.K. Jr. Way, San Diego, CA 92114',
+        description: '¡Viva México! Food, music, dancers, games, and family fun on the MLK Promenade.'
+      },
+      'communitea-2026': {
+        title: 'COMMUNITEA is Back This Summer',
+        date: '2026-08-15',
+        time: '2:00 PM – 4:00 PM',
+        location: '525 C St Suite 2, San Diego, CA 92101 (Brokers Gallery)',
+        description: 'Tea ceremony, visual arts, and storytelling.'
+      },
+      'monthly-zoom-2026-08': {
+        title: 'Monthly Zoom Meeting',
+        date: '2026-08-27',
+        time: '6:00 PM – 7:00 PM',
+        location: 'Zoom (link sent after registration)',
+        description: 'Monthly community council meeting.'
+      }
+      // Add new events here as they're created
+    };
+
+    // Allow direct URL params for event ID, or default to a generic form
+    const params = new URLSearchParams(window.location.search);
+    const eventId = params.get('event');
+    const eventData = eventId && eventCatalog[eventId] ? eventCatalog[eventId] : null;
+
+    // Populate event summary if we have data
+    if (eventData) {
+      const [y, m, d] = eventData.date.split('-').map(Number);
+      const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      document.getElementById('evt-day').textContent = d;
+      document.getElementById('evt-month').textContent = monthNames[m - 1];
+      document.getElementById('evt-year').textContent = y;
+      document.getElementById('evt-title').textContent = eventData.title;
+      document.getElementById('evt-time').textContent = eventData.time;
+      document.getElementById('evt-location').textContent = eventData.location;
+      document.title = eventData.title + ' | Registration | BHCC';
+    } else {
+      // Generic form — event details come from the referring page or are set manually
+      document.getElementById('evt-title').textContent = 'Event Registration';
+    }
+
+    // ===== Attendee Counter =====
+    let attendeeCount = 1;
+    const additionalNamesDiv = document.getElementById('fg-additional-names');
+
+    function adjustAttendees(delta) {
+      attendeeCount = Math.max(1, Math.min(20, attendeeCount + delta));
+      document.getElementById('attendee-count').textContent = attendeeCount;
+      document.getElementById('attendees').value = attendeeCount;
+      additionalNamesDiv.style.display = attendeeCount > 1 ? 'block' : 'none';
+    }
+
+    // ===== Form Validation =====
+    function validateField(id, condition) {
+      const group = document.getElementById('fg-' + id);
+      const input = document.getElementById(id);
+      if (!condition) {
+        group.classList.add('has-error');
+        input.classList.add('error');
+        return false;
+      } else {
+        group.classList.remove('has-error');
+        input.classList.remove('error');
+        return true;
+      }
+    }
+
+    // Clear errors on input
+    ['name', 'email', 'address'].forEach(id => {
+      document.getElementById(id).addEventListener('input', function() {
+        const group = document.getElementById('fg-' + id);
+        group.classList.remove('has-error');
+        this.classList.remove('error');
+      });
+    });
+
+    // ===== Form Submit =====
+    function handleSubmit(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const attendees = document.getElementById('attendees').value;
+      const additionalNames = document.getElementById('additional-names').value.trim();
+      const volunteer = document.getElementById('volunteer').checked;
+      const newsletter = document.getElementById('newsletter').checked;
+
+      // Validate
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const phoneRegex = /^[\d\s\-\+\(\)]{7,}$/;
+      
+      let valid = true;
+      valid &= validateField('name', name.length >= 2);
+      valid &= validateField('email', emailRegex.test(email));
+      valid &= validateField('address', address.length >= 5);
+      if (phone && !phoneRegex.test(phone)) {
+        validateField('phone', false);
+        valid = false;
+      }
+
+      if (!valid) return false;
+
+      // Disable submit button
+      const btn = document.getElementById('submit-btn');
+      btn.disabled = true;
+      btn.textContent = 'Signing you up...';
+
+      // Build registration record
+      // NOTE: In production, this would POST to a backend / Google Form / Formspree / etc.
+      const registration = {
+        event: eventId || 'general',
+        name, email, phone, address, attendees: parseInt(attendees),
+        additional_names: additionalNames,
+        volunteer, newsletter,
+        timestamp: new Date().toISOString()
+      };
+
+      // Store locally (demo mode — replace with real submission)
+      let registrations = JSON.parse(localStorage.getItem('bhcc_registrations') || '[]');
+      registrations.push(registration);
+      localStorage.setItem('bhcc_registrations', JSON.stringify(registrations));
+
+      // Show success
+      setTimeout(() => {
+        document.getElementById('form-card').style.display = 'none';
+        const successCard = document.getElementById('success-card');
+        successCard.style.display = 'block';
+
+        // Populate confirmation details
+        const details = document.getElementById('reg-details');
+        let html = `<p><strong>Name:</strong> ${name}</p>`;
+        html += `<p><strong>Email:</strong> ${email}</p>`;
+        html += `<p><strong>Attendees:</strong> ${attendees}</p>`;
+        if (eventData) {
+          html += `<p><strong>Event:</strong> ${eventData.title}</p>`;
+          html += `<p><strong>Date:</strong> ${eventData.time}</p>`;
+        }
+        if (volunteer) html += `<p><strong>Volunteer:</strong> Yes — we'll be in touch!</p>`;
+        details.innerHTML = html;
+
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 600);
+
+      return false;
+    }
+  </script>
+</body>
+</html>
