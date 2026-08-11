@@ -1,0 +1,216 @@
+/* Broadway Heights Community Council — shared styling for the custom pages.
+   Colours, type and chrome are taken from the live Wix site so these pages
+   sit alongside the mirrored pages without looking like a different site. */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Open+Sans:wght@400;600;700&family=Poppins:wght@600&display=swap');
+
+:root {
+  --cream: #f9f7f4;
+  --cream-line: #e7e0d7;
+  --blue: #2c5c7a;
+  --blue-deep: #1f4459;
+  --blue-muted: #5f8399;
+  --terracotta: #a45f53;
+  --terracotta-dark: #8c4e44;
+  --ink: #3a3936;
+  --ink-soft: #6f6d68;
+  --white: #fff;
+  --shell: 1160px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+a { color: var(--blue); }
+
+.shell { max-width: var(--shell); margin: 0 auto; padding: 0 40px; }
+
+/* ---------- Header ---------- */
+
+.bh-header {
+  background: var(--cream);
+  border-bottom: 1px solid var(--cream-line);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+.bh-header__inner {
+  max-width: var(--shell);
+  margin: 0 auto;
+  padding: 14px 40px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.bh-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+.bh-brand img { width: 46px; height: 46px; display: block; }
+.bh-brand span {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--ink);
+  max-width: 15ch;
+}
+.bh-nav { margin-left: auto; display: flex; align-items: center; gap: 30px; }
+.bh-nav a {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--blue-muted);
+  text-decoration: none;
+  padding: 4px 0;
+  border-bottom: 1px solid transparent;
+}
+.bh-nav a:hover { color: var(--blue); }
+.bh-nav a[aria-current='page'] { color: var(--terracotta); border-bottom-color: var(--terracotta); }
+
+.bh-burger {
+  display: none;
+  margin-left: auto;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 8px;
+}
+.bh-burger span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: var(--blue);
+  margin: 5px 0;
+}
+
+/* ---------- Page banner ---------- */
+
+.bh-banner {
+  background: var(--blue);
+  color: var(--white);
+  text-align: center;
+  padding: 72px 24px 64px;
+}
+.bh-banner h1 {
+  color: var(--white);
+  font-size: 44px;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+}
+.bh-banner p {
+  margin-top: 14px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 17px;
+}
+
+/* ---------- Generic pieces ---------- */
+
+.bh-main { padding: 56px 0 72px; }
+
+.bh-eyebrow {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--blue-muted);
+}
+
+.bh-btn {
+  display: inline-block;
+  font-family: 'Poppins', 'Montserrat', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  padding: 13px 30px;
+  border: 0;
+  cursor: pointer;
+  background: var(--terracotta);
+  color: var(--white);
+  transition: background 0.2s ease;
+}
+.bh-btn:hover { background: var(--terracotta-dark); }
+.bh-btn--ghost {
+  background: transparent;
+  color: var(--blue);
+  border: 1px solid var(--blue);
+}
+.bh-btn--ghost:hover { background: var(--blue); color: var(--white); }
+
+.bh-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 15px;
+  color: var(--blue-muted);
+  text-decoration: none;
+}
+.bh-back:hover { color: var(--blue); }
+
+/* ---------- Footer ---------- */
+
+.bh-footer { background: var(--blue); color: var(--white); padding: 64px 24px 40px; margin-top: 72px; }
+.bh-footer__inner { max-width: 620px; margin: 0 auto; text-align: center; }
+.bh-footer h2 {
+  color: var(--white);
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.35;
+}
+.bh-footer form { margin: 30px 0 44px; }
+.bh-footer input[type='email'] {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+  color: var(--white);
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 16px;
+  padding: 12px 4px;
+  margin-bottom: 26px;
+}
+.bh-footer input[type='email']::placeholder { color: rgba(255, 255, 255, 0.65); }
+.bh-footer input[type='email']:focus { outline: none; border-bottom-color: var(--white); }
+.bh-footer p { color: rgba(255, 255, 255, 0.88); font-size: 15px; margin-bottom: 18px; }
+.bh-footer a { color: var(--white); }
+.bh-footer__meta { margin-top: 34px; font-size: 14px; color: rgba(255, 255, 255, 0.7); }
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 860px) {
+  .shell, .bh-header__inner { padding-left: 22px; padding-right: 22px; }
+  .bh-burger { display: block; }
+  .bh-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    background: var(--cream);
+    border-bottom: 1px solid var(--cream-line);
+    padding: 8px 22px 18px;
+  }
+  .bh-nav.is-open { display: flex; }
+  .bh-nav a { padding: 11px 0; width: 100%; }
+  .bh-banner { padding: 52px 20px 46px; }
+  .bh-banner h1 { font-size: 32px; }
+}

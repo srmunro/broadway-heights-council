@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Event Registration | Broadway Heights Community Council</title>
+  <meta name="description" content="Register for upcoming Broadway Heights Community Council events.">
+  <link rel="icon" href="https://static.wixstatic.com/media/9b9e6e_311f91ce3d684f748ac00eaab46b407a~mv2.png/v1/fill/w_32,h_32,lg_1,usm_0.66_1.00_0.01/9b9e6e_311f91ce3d684f748ac00eaab46b407a~mv2.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../assets/bhcc.css">
+  <link rel="stylesheet" href="../assets/bhcc-pages.css">
+</head>
+<body>
+
+<header class="bh-header" id="top">
+  <div class="bh-header__inner">
+    <a class="bh-brand" href="../">
+      <img src="https://static.wixstatic.com/media/9b9e6e_5f356153803e43d98a8f513104c6b454~mv2.png/v1/fill/w_92,h_92,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Logo.png" alt="Broadway Heights Community Council logo" width="46" height="46">
+      <span>Broadway Heights Community Council</span>
+    </a>
+    <button class="bh-burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="bh-nav">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="bh-nav" id="bh-nav">
+      <a href="../">Home</a>
+      <a href="../ourstory/">Our Story</a>
+      <a href="events.html" aria-current="page">Events</a>
+      <a href="../join-the-council/">Join the Council</a>
+      <a href="../copy-of-contact-us/">Contact Us</a>
+      <a href="../donate/">Donate</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-wrap">
+
+    <!-- Back Link -->
+    <a href="events.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Back to Events
+    </a>
+
+    <!-- Event Summary (populated by JS) -->
+    <div class="event-summary" id="event-summary">
+      <div class="date-bar">
+        <div>
+          <div class="day" id="evt-day">--</div>
+          <div class="month" id="evt-month">---</div>
+        </div>
+        <div class="year" id="evt-year">----</div>
+      </div>
+      <div class="event-info">
+        <h2 id="evt-title">Event Registration</h2>
+        <div class="meta-row" id="evt-time-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span id="evt-time">--</span>
+        </div>
+        <div class="meta-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span id="evt-location">--</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Registration Form -->
+    <div class="form-card" id="form-card">
+      <h3>Sign Up for This Event</h3>
+      <p class="form-intro">Fill out the form below to reserve your spot. We'll send a confirmation with event details.</p>
+
+      <form id="registration-form" onsubmit="return handleSubmit(event)">
+
+        <!-- Full Name -->
+        <div class="form-group" id="fg-name">
+          <label for="name">Full Name <span class="required">*</span></label>
+          <input type="text" id="name" name="name" required placeholder="Jane Doe" autocomplete="name">
+          <div class="error-msg">Please enter your full name.</div>
+        </div>
+
+        <!-- Email + Phone -->
+        <div class="form-row">
+          <div class="form-group" id="fg-email">
+            <label for="email">Email <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required placeholder="jane@example.com" autocomplete="email">
+            <div class="error-msg">Please enter a valid email address.</div>
+          </div>
+          <div class="form-group" id="fg-phone">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="(619) 555-0100" autocomplete="tel">
+            <div class="error-msg">Please enter a valid phone number.</div>
+          </div>
+        </div>
+
+        <!-- Address -->
+        <div class="form-group" id="fg-address">
+          <label for="address">Street Address <span class="required">*</span></label>
+          <input type="text" id="address" name="address" required placeholder="123 Broadway St, San Diego, CA 92114" autocomplete="street-address">
+          <div class="error-msg">Please enter your street address.</div>
+        </div>
+
+        <!-- Number of Attendees -->
+        <div class="form-group">
+          <label>How many people will be attending? (including yourself) <span class="required">*</span></label>
+          <div class="attendee-counter">
+            <button type="button" class="counter-btn" onclick="adjustAttendees(-1)" aria-label="Decrease attendees">−</button>
+            <span class="counter-value" id="attendee-count">1</span>
+            <button type="button" class="counter-btn" onclick="adjustAttendees(1)" aria-label="Increase attendees">+</button>
+            <span class="counter-label">attendee(s)</span>
+          </div>
+          <input type="hidden" id="attendees" name="attendees" value="1">
+        </div>
+
+        <!-- Names of additional attendees -->
+        <div class="form-group" id="fg-additional-names" style="display:none">
+          <label for="additional-names">Names of additional attendees</label>
+          <textarea id="additional-names" name="additional_names" rows="3" placeholder="List the names of people attending with you (optional)"></textarea>
+          <div class="hint">One name per line, or separate with commas.</div>
+        </div>
+
+        <!-- Volunteer checkbox -->
+        <div class="checkbox-group">
+          <input type="checkbox" id="volunteer" name="volunteer">
+          <label for="volunteer">I'm interested in volunteering to help with this event or future BHCC events.</label>
+        </div>
+
+        <!-- Newsletter checkbox -->
+        <div class="checkbox-group">
+          <input type="checkbox" id="newsletter" name="newsletter" checked>
+          <label for="newsletter">Send me email updates about future BHCC events and community news. (We respect your privacy — we'll never share your information.)</label>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="submit-btn" id="submit-btn">Sign Me Up!</button>
+      </form>
+    </div>
+
+    <!-- Success Card (shown after submit) -->
+    <div class="success-card" id="success-card">
+      <div class="check-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h3>You're Registered!</h3>
+      <p id="success-message">We'll see you at the event. A confirmation has been sent to your email.</p>
+      <div class="registration-details" id="reg-details"></div>
+      <a href="events.html" class="btn-secondary">Back to Events</a>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+
+<footer class="bh-footer">
+  <div class="bh-footer__inner">
+    <h2>Let's Collaborate | Stay Updated with the Latest News and Developments</h2>
+    <form action="../copy-of-contact-us/" method="get">
+      <input type="email" name="email" placeholder="Enter your email here" aria-label="Email address">
+      <button type="submit" class="bh-btn">Submit</button>
+    </form>
+    <p>Broadway Heights Community Council is a registered 501(c)(3) nonprofit. EIN: 90-0893585</p>
+    <p>A safe, inclusive, and united neighborhood voice, working for over two decades to strengthen
+       community pride and ensure a better quality of life for all.</p>
+    <p><a href="#top">Back to Top</a></p>
+    <div class="bh-footer__meta">&copy; Broadway Heights Community Council 2024</div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var burger = document.querySelector('.bh-burger');
+    var nav = document.getElementById('bh-nav');
+    if (!burger || !nav) return;
+    burger.addEventListener('click', function () {
+      var open = nav.classList.toggle('is-open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  })();
+</script>
+
+<script>
+// ===== Event data (populated from query param or direct edit) =====
+    // To use: register.html?event=communitea-2026
+    // Or manually set the event details below.
+
+    const eventCatalog = {
+      'mexican-independence-day-2026': {
+        title: 'Mexican Independence Day Celebration',
+        date: '2026-09-12',
+        time: '11:00 AM – 3:00 PM',
+        location: 'Martin Luther King Jr. Promenade, 2399 M.L.K. Jr. Way, San Diego, CA 92114',
+        description: '¡Viva México! Food, music, dancers, games, and family fun on the MLK Promenade.'
+      },
+      'communitea-2026': {
+        title: 'COMMUNITEA is Back This Summer',
+        date: '2026-08-15',
+        time: '2:00 PM – 4:00 PM',
+        location: '525 C St Suite 2, San Diego, CA 92101 (Brokers Gallery)',
+        description: 'Tea ceremony, visual arts, and storytelling.'
+      },
+      'monthly-zoom-2026-08': {
+        title: 'Monthly Zoom Meeting',
+        date: '2026-08-27',
+        time: '6:00 PM – 7:00 PM',
+        location: 'Zoom (link sent after registration)',
+        description: 'Monthly community council meeting.'
+      }
+      // Add new events here as they're created
+    };
+
+    // Allow direct URL params for event ID, or default to a generic form
+    const params = new URLSearchParams(window.location.search);
+    const eventId = params.get('event');
+    const eventData = eventId && eventCatalog[eventId] ? eventCatalog[eventId] : null;
+
+    // Populate event summary if we have data
+    if (eventData) {
+      const [y, m, d] = eventData.date.split('-').map(Number);
+      const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      document.getElementById('evt-day').textContent = d;
+      document.getElementById('evt-month').textContent = monthNames[m - 1];
+      document.getElementById('evt-year').textContent = y;
+      document.getElementById('evt-title').textContent = eventData.title;
+      document.getElementById('evt-time').textContent = eventData.time;
+      document.getElementById('evt-location').textContent = eventData.location;
+      document.title = eventData.title + ' | Registration | BHCC';
+    } else {
+      // Generic form — event details come from the referring page or are set manually
+      document.getElementById('evt-title').textContent = 'Event Registration';
+    }
+
+    // ===== Attendee Counter =====
+    let attendeeCount = 1;
+    const additionalNamesDiv = document.getElementById('fg-additional-names');
+
+    function adjustAttendees(delta) {
+      attendeeCount = Math.max(1, Math.min(20, attendeeCount + delta));
+      document.getElementById('attendee-count').textContent = attendeeCount;
+      document.getElementById('attendees').value = attendeeCount;
+      additionalNamesDiv.style.display = attendeeCount > 1 ? 'block' : 'none';
+    }
+
+    // ===== Form Validation =====
+    function validateField(id, condition) {
+      const group = document.getElementById('fg-' + id);
+      const input = document.getElementById(id);
+      if (!condition) {
+        group.classList.add('has-error');
+        input.classList.add('error');
+        return false;
+      } else {
+        group.classList.remove('has-error');
+        input.classList.remove('error');
+        return true;
+      }
+    }
+
+    // Clear errors on input
+    ['name', 'email', 'address'].forEach(id => {
+      document.getElementById(id).addEventListener('input', function() {
+        const group = document.getElementById('fg-' + id);
+        group.classList.remove('has-error');
+        this.classList.remove('error');
+      });
+    });
+
+    // ===== Form Submit =====
+    function handleSubmit(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const attendees = document.getElementById('attendees').value;
+      const additionalNames = document.getElementById('additional-names').value.trim();
+      const volunteer = document.getElementById('volunteer').checked;
+      const newsletter = document.getElementById('newsletter').checked;
+
+      // Validate
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const phoneRegex = /^[\d\s\-\+\(\)]{7,}$/;
+      
+      let valid = true;
+      valid &= validateField('name', name.length >= 2);
+      valid &= validateField('email', emailRegex.test(email));
+      valid &= validateField('address', address.length >= 5);
+      if (phone && !phoneRegex.test(phone)) {
+        validateField('phone', false);
+        valid = false;
+      }
+
+      if (!valid) return false;
+
+      // Disable submit button
+      const btn = document.getElementById('submit-btn');
+      btn.disabled = true;
+      btn.textContent = 'Signing you up...';
+
+      // Build registration record
+      // NOTE: In production, this would POST to a backend / Google Form / Formspree / etc.
+      const registration = {
+        event: eventId || 'general',
+        name, email, phone, address, attendees: parseInt(attendees),
+        additional_names: additionalNames,
+        volunteer, newsletter,
+        timestamp: new Date().toISOString()
+      };
+
+      // Store locally (demo mode — replace with real submission)
+      let registrations = JSON.parse(localStorage.getItem('bhcc_registrations') || '[]');
+      registrations.push(registration);
+      localStorage.setItem('bhcc_registrations', JSON.stringify(registrations));
+
+      // Show success
+      setTimeout(() => {
+        document.getElementById('form-card').style.display = 'none';
+        const successCard = document.getElementById('success-card');
+        successCard.style.display = 'block';
+
+        // Populate confirmation details
+        const details = document.getElementById('reg-details');
+        let html = `<p><strong>Name:</strong> ${name}</p>`;
+        html += `<p><strong>Email:</strong> ${email}</p>`;
+        html += `<p><strong>Attendees:</strong> ${attendees}</p>`;
+        if (eventData) {
+          html += `<p><strong>Event:</strong> ${eventData.title}</p>`;
+          html += `<p><strong>Date:</strong> ${eventData.time}</p>`;
+        }
+        if (volunteer) html += `<p><strong>Volunteer:</strong> Yes — we'll be in touch!</p>`;
+        details.innerHTML = html;
+
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 600);
+
+      return false;
+    }
+</script>
+
+</body>
+</html>

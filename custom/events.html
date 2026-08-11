@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Events | Broadway Heights Community Council</title>
+  <meta name="description" content="Upcoming and archived events from the Broadway Heights Community Council.">
+  <link rel="icon" href="https://static.wixstatic.com/media/9b9e6e_311f91ce3d684f748ac00eaab46b407a~mv2.png/v1/fill/w_32,h_32,lg_1,usm_0.66_1.00_0.01/9b9e6e_311f91ce3d684f748ac00eaab46b407a~mv2.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../assets/bhcc.css">
+  <link rel="stylesheet" href="../assets/bhcc-pages.css">
+</head>
+<body>
+
+<header class="bh-header" id="top">
+  <div class="bh-header__inner">
+    <a class="bh-brand" href="../">
+      <img src="https://static.wixstatic.com/media/9b9e6e_5f356153803e43d98a8f513104c6b454~mv2.png/v1/fill/w_92,h_92,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Logo.png" alt="Broadway Heights Community Council logo" width="46" height="46">
+      <span>Broadway Heights Community Council</span>
+    </a>
+    <button class="bh-burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="bh-nav">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="bh-nav" id="bh-nav">
+      <a href="../">Home</a>
+      <a href="../ourstory/">Our Story</a>
+      <a href="events.html" aria-current="page">Events</a>
+      <a href="../join-the-council/">Join the Council</a>
+      <a href="../copy-of-contact-us/">Contact Us</a>
+      <a href="../donate/">Donate</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Page Title -->
+  <section class="page-title">
+    <h2>Events</h2>
+    <p>Community gatherings, celebrations, and meetings</p>
+  </section>
+
+  <!-- Tabs -->
+  <div class="tabs-container">
+    <div class="tabs">
+      <button class="tab active" id="tab-upcoming" onclick="switchTab('upcoming')">
+        Upcoming Events <span class="badge" id="upcoming-count">0</span>
+      </button>
+      <button class="tab" id="tab-archive" onclick="switchTab('archive')">
+        Event Archive <span class="badge" id="archive-count">0</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Upcoming Events Panel -->
+  <div class="events-panel active" id="panel-upcoming">
+    <div class="events-grid" id="grid-upcoming"></div>
+  </div>
+
+  <!-- Archive Panel -->
+  <div class="events-panel" id="panel-archive">
+    <div class="events-grid" id="grid-archive"></div>
+  </div>
+
+  <!-- Footer -->
+
+<footer class="bh-footer">
+  <div class="bh-footer__inner">
+    <h2>Let's Collaborate | Stay Updated with the Latest News and Developments</h2>
+    <form action="../copy-of-contact-us/" method="get">
+      <input type="email" name="email" placeholder="Enter your email here" aria-label="Email address">
+      <button type="submit" class="bh-btn">Submit</button>
+    </form>
+    <p>Broadway Heights Community Council is a registered 501(c)(3) nonprofit. EIN: 90-0893585</p>
+    <p>A safe, inclusive, and united neighborhood voice, working for over two decades to strengthen
+       community pride and ensure a better quality of life for all.</p>
+    <p><a href="#top">Back to Top</a></p>
+    <div class="bh-footer__meta">&copy; Broadway Heights Community Council 2024</div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var burger = document.querySelector('.bh-burger');
+    var nav = document.getElementById('bh-nav');
+    if (!burger || !nav) return;
+    burger.addEventListener('click', function () {
+      var open = nav.classList.toggle('is-open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  })();
+</script>
+
+<script>
+// ===== Event Data =====
+    const events = [
+      {
+        filename: "mexican-independence-day-2026.html",
+        title: "Mexican Independence Day Celebration",
+        date: "2026-09-12",
+        end_date: null,
+        time: "11:00 AM – 3:00 PM",
+        time_sort: "11:00",
+        location: "2399 M.L.K. Jr. Way, San Diego, CA 92114",
+        venue: "Martin Luther King Jr. Promenade",
+        description: "¡Viva México! Join BHCC for a vibrant celebration of Mexican Independence Day on the MLK Promenade — authentic food, live music, folklorico dancers, games, and family fun. Free and open to all.",
+        status: "upcoming",
+        virtual: false,
+        rsvpId: "mexican-independence-day-2026",
+        detailPage: "mexican-independence-day-2026.html"
+      },
+      {
+        filename: "communitea-is-back-this-summer-2026-08-15-14-00.html",
+        title: "COMMUNITEA is Back This Summer",
+        date: "2026-08-15",
+        end_date: null,
+        time: "2:00 PM – 4:00 PM",
+        time_sort: "14:00",
+        location: "525 C St Suite 2, San Diego, CA 92101",
+        venue: "Brokers Gallery",
+        description: "Brokers Gallery teams up with @originstea.co for a three-part Cultural Series blending tea ceremony, visual arts, and storytelling — experience authentic teas and snacks sourced directly from China, play a round of mahjong, and deepen your connection with the San Diego creative community.",
+        status: "upcoming",
+        virtual: false,
+        rsvpId: "communitea-2026",
+        detailPage: "../event-details-registration/communitea-is-back-this-summer-2026-08-15-14-00/"
+      },
+      {
+        filename: "monthly-zoom-meeting-2026-08-27-18-00.html",
+        title: "Monthly Zoom Meeting",
+        date: "2026-08-27",
+        end_date: null,
+        time: "6:00 PM – 7:00 PM",
+        time_sort: "18:00",
+        location: "Zoom (link provided upon registration)",
+        venue: "Virtual",
+        description: "BHCC invites you to attend our monthly community council meeting. Your voice and your participation are needed.",
+        status: "upcoming",
+        virtual: true,
+        rsvpId: "monthly-zoom-2026-08",
+        detailPage: "../event-details-registration/monthly-zoom-meeting-2026-08-27-18-00/"
+      },
+      {
+        filename: "encanto-block-party.html",
+        title: "Encanto Block Party",
+        date: "2026-07-12",
+        end_date: null,
+        time: "12:00 PM – 7:30 PM",
+        time_sort: "12:00",
+        location: "449 Ritchey St, San Diego, CA 92114",
+        venue: "Marie Widman Memorial Park",
+        description: "The Encanto Block Party Music Festival is coming to Marie Widman Park. This is going to be a big one, and you won't want to miss it.",
+        status: "past",
+        virtual: false,
+        detailPage: "../event-details-registration/encanto-block-party/"
+      },
+      {
+        filename: "juneteenth-at-chollas-lake-park.html",
+        title: "Juneteenth at Chollas Lake Park",
+        date: "2026-06-13",
+        end_date: null,
+        time: "10:00 AM – 5:00 PM",
+        time_sort: "10:00",
+        location: "6350 College Grove Dr, San Diego, CA 92115",
+        venue: "Chollas Lake Park",
+        description: "A free community celebration with live music, art, food, and family fun.",
+        status: "past",
+        virtual: false,
+        detailPage: "../event-details-registration/juneteenth-at-chollas-lake-park/"
+      },
+      {
+        filename: "juneteenth-kickoff-black-biz-flea-market-x-socal-barter.html",
+        title: "Juneteenth Kickoff: Black Biz Flea Market x SoCal Barter",
+        date: "2026-06-13",
+        end_date: null,
+        time: "12:00 PM – 6:00 PM",
+        time_sort: "12:00",
+        location: "6785 Imperial Ave, San Diego, CA 92114",
+        venue: "Imperial Ave",
+        description: "Shop 50+ Black-owned businesses with live art, DJs, food, and games.",
+        status: "past",
+        virtual: false,
+        detailPage: "../event-details-registration/juneteenth-kickoff-black-biz-flea-market-x-socal-barter/"
+      },
+      {
+        filename: "mob-the-business-bus-tour-we-ridin.html",
+        title: "Mob the Business Bus Tour: We Ridin",
+        date: "2026-06-14",
+        end_date: null,
+        time: "9:30 AM – 3:00 PM",
+        time_sort: "09:30",
+        location: "1755 Euclid Ave Unit 101, San Diego, CA 92105",
+        venue: "FAM MART",
+        description: "A bus tour supporting Black-owned businesses across Southeast San Diego.",
+        status: "past",
+        virtual: false,
+        detailPage: "../event-details-registration/mob-the-business-bus-tour-we-ridin/"
+      },
+      {
+        filename: "onyx-a-black-artist-exhibition.html",
+        title: "ONYX: A Black Artist Exhibition",
+        date: "2026-06-19",
+        end_date: null,
+        time: "7:00 PM – 9:00 PM",
+        time_sort: "19:00",
+        location: "525 C St Ste 2, San Diego, CA 92101",
+        venue: "Broker's Building Art Gallery",
+        description: "An exhibition celebrating Black artists and their work in the San Diego community.",
+        status: "past",
+        virtual: false,
+        detailPage: "../event-details-registration/onyx-a-black-artist-exhibition/"
+      },
+      {
+        filename: "paint-my-legacy-at-bowlegged-bbq.html",
+        title: "Paint My Legacy at Bowlegged BBQ",
+        date: "2026-06-19",
+        end_date: null,
+        time: "5:00 PM – 9:00 PM",
+        time_sort: "17:00",
+        location: "4255 Market St, San Diego, CA 92102",
+        venue: "Bowlegged B.B.Q",
+        description: "Paint, eat, and celebrate freedom at Bowlegged BBQ.",
+        status: "past",
+        virtual: false,
+        detailPage: "../event-details-registration/paint-my-legacy-at-bowlegged-bbq/"
+      },
+      {
+        filename: "street-dance-legacy-juneteenth-edition.html",
+        title: "Street Dance Legacy: Juneteenth Edition",
+        date: "2026-06-19",
+        end_date: "2026-06-20",
+        time: "7:00 PM Sat – 8:30 PM Sun",
+        time_sort: "19:00",
+        location: "6108 Avenida Encinas Suite E, Carlsbad, CA 92011",
+        venue: "Carlsbad Performing Arts Academy",
+        description: "A 2-day celebration of African American dance culture, soul food, and community.",
+        status: "past",
+        virtual: false,
+        detailPage: "../event-details-registration/street-dance-legacy-juneteenth-edition/"
+      },
+      {
+        filename: "naacp-juneteenth-cultural-celebration.html",
+        title: "NAACP Juneteenth Cultural Celebration",
+        date: "2026-06-20",
+        end_date: null,
+        time: "10:00 AM – 6:00 PM",
+        time_sort: "10:00",
+        location: "Pier View Way & N Freeman St, Oceanside, CA 92054",
+        venue: "Downtown Oceanside",
+        description: "Jazz, gospel, dance, basketball, and community in Downtown Oceanside.",
+        status: "past",
+        virtual: false,
+        detailPage: "../event-details-registration/naacp-juneteenth-cultural-celebration/"
+      },
+      {
+        filename: "kinfolk-fest-juneteenth.html",
+        title: "Kinfolk Fest — Juneteenth",
+        date: "2026-06-20",
+        end_date: null,
+        time: "1:00 PM – 9:00 PM",
+        time_sort: "13:00",
+        location: "1600 Pacific Hwy, San Diego, CA 92101",
+        venue: "Waterfront Park",
+        description: "Live music, food, Black-owned vendors, and a spades tournament.",
+        status: "past",
+        virtual: false,
+        detailPage: "../event-details-registration/kinfolk-fest-juneteenth/"
+      },
+      {
+        filename: "back-to-school-block-party.html",
+        title: "Back to School Block Party",
+        date: "2023-09-02",
+        end_date: null,
+        time: "11:00 AM – 4:00 PM",
+        time_sort: "11:00",
+        location: "Laconia St, San Diego, CA 92114",
+        venue: "Laconia St",
+        description: "Come out and meet your neighbors, play games, enjoy fun activities, and get your school supplies. Lunch served at 12 PM. Bring your own chairs, canopy, and table.",
+        status: "past",
+        virtual: false,
+        detailPage: "../event-details-registration/back-to-school-block-party/"
+      },
+      {
+        filename: "mexican-independence-day-celebration.html",
+        title: "Mexican Independence Day Celebration",
+        date: "2023-09-16",
+        end_date: null,
+        time: "11:00 AM – 2:00 PM",
+        time_sort: "11:00",
+        location: "2399 Weston St, San Diego, CA 92114",
+        venue: "Weston St",
+        description: "Come out to enjoy great Mexican food, games, dancers and more with your neighbors.",
+        status: "past",
+        virtual: false,
+        detailPage: "../event-details-registration/mexican-independence-day-celebration/"
+      },
+      {
+        filename: "broadway-heights-community-council-presents-christmas-on-the-promenade.html",
+        title: "Christmas On The Promenade",
+        date: "2023-12-09",
+        end_date: null,
+        time: "5:30 PM – 8:00 PM",
+        time_sort: "17:30",
+        location: "2399 M.L.K. Jr. Way, San Diego, CA 92114",
+        venue: "Martin Luther King Jr. Promenade",
+        description: "A great evening of fun — pizza, donuts, hot chocolate, caroling, gifts for the kids, Christmas music, and a great time for the entire family. Bring your chairs and bundle up!",
+        status: "past",
+        virtual: false,
+        detailPage: "../event-details-registration/broadway-heights-community-council-presents-christmas-on-the-promenade/"
+      }
+    ];
+
+    // ===== Helpers =====
+    const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const monthFull = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+    function parseDate(dateStr) {
+      const [y, m, d] = dateStr.split('-').map(Number);
+      return { year: y, month: m, day: d, monthName: monthNames[m-1], monthFull: monthFull[m-1] };
+    }
+
+    function formatDate(dateStr) {
+      const dt = parseDate(dateStr);
+      return `${dt.monthFull} ${dt.day}, ${dt.year}`;
+    }
+
+    // Icon SVGs
+    const iconClock = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>';
+    const iconPin = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>';
+    const iconArrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>';
+
+    // ===== Render Event Card =====
+    function renderCard(evt) {
+      const dt = parseDate(evt.date);
+      const isMultiDay = evt.end_date && evt.end_date !== evt.date;
+      let dateLabel = `${dt.monthName} ${dt.day}`;
+      if (isMultiDay) {
+        const endDt = parseDate(evt.end_date);
+        dateLabel = `${dt.monthName} ${dt.day}–${endDt.monthName} ${endDt.day}`;
+      }
+      const virtualBadge = evt.virtual ? '<span class="virtual-badge">Virtual</span>' : '';
+      const venueLine = evt.venue && evt.venue !== 'Virtual'
+        ? `${evt.venue} &middot; ${evt.location}`
+        : evt.location;
+
+      const rsvpLink = evt.rsvpId
+        ? `<a class="rsvp-btn-card" href="register.html?event=${evt.rsvpId}">Sign Up</a>`
+        : '';
+      const detailsLink = evt.detailPage
+        ? `<a class="details-link" href="${evt.detailPage}">View Details ${iconArrow}</a>`
+        : '';
+
+      return `
+        <div class="event-card">
+          <div class="date-bar">
+            <div>
+              <div class="day">${dt.day}</div>
+              <div class="month">${dt.monthName}</div>
+            </div>
+            <div class="year">${dt.year}</div>
+          </div>
+          <div class="card-body">
+            <h3>${evt.title}${virtualBadge}</h3>
+            <div class="meta">${iconClock} ${evt.time}${isMultiDay ? ' (2-day event)' : ''}</div>
+            <div class="meta">${iconPin} ${venueLine}</div>
+            <p class="description">${evt.description}</p>
+            <div class="card-actions">
+              ${detailsLink}
+              ${rsvpLink}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // ===== Sort Events =====
+    function sortEvents(list) {
+      return list.sort((a, b) => {
+        const da = a.date + a.time_sort;
+        const db = b.date + b.time_sort;
+        return db.localeCompare(da); // newest first
+      });
+    }
+
+    // ===== Initialize =====
+    const upcoming = sortEvents(events.filter(e => e.status === 'upcoming'));
+    const archive = sortEvents(events.filter(e => e.status === 'past'));
+
+    document.getElementById('upcoming-count').textContent = upcoming.length;
+    document.getElementById('archive-count').textContent = archive.length;
+
+    const gridUpcoming = document.getElementById('grid-upcoming');
+    const gridArchive = document.getElementById('grid-archive');
+
+    if (upcoming.length > 0) {
+      gridUpcoming.innerHTML = upcoming.map(renderCard).join('');
+    } else {
+      gridUpcoming.innerHTML = '<div class="empty-state"><h3>No upcoming events</h3><p>Check back soon — new events are being planned!</p></div>';
+    }
+
+    if (archive.length > 0) {
+      gridArchive.innerHTML = archive.map(renderCard).join('');
+    } else {
+      gridArchive.innerHTML = '<div class="empty-state"><h3>Archive is empty</h3><p>Past events will appear here.</p></div>';
+    }
+
+    // ===== Tab Switching =====
+    function switchTab(tab) {
+      // Update tab buttons
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.getElementById('tab-' + tab).classList.add('active');
+
+      // Update panels
+      document.querySelectorAll('.events-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('panel-' + tab).classList.add('active');
+
+      // Add archived class for styling
+      const container = document.getElementById('panel-' + tab);
+      if (tab === 'archive') {
+        container.classList.add('archived');
+      } else {
+        container.classList.remove('archived');
+      }
+    }
+</script>
+
+</body>
+</html>
