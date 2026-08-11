@@ -26,7 +26,15 @@ Snapshot taken **2026-08-10**.
 | [`custom/events.html`](custom/events.html) | Events list with upcoming/archive tabs, driven by a JS array at the bottom of the file |
 | [`custom/register.html`](custom/register.html) | Event sign-up form (`?event=<id>` selects the event) |
 | [`custom/event-template.html`](custom/event-template.html) | Starting point for a new event detail page |
-| [`custom/mexican-independence-day-2026.html`](custom/mexican-independence-day-2026.html) | Event detail page for the September 2026 celebration |
+| [`custom/mexican-independence-day-2026.html`](custom/mexican-independence-day-2026.html) | Mexican Independence Day Celebration — Sep 12, 2026 |
+| [`custom/pumpkin-carving-2026.html`](custom/pumpkin-carving-2026.html) | Pumpkins on the Promenade — Oct 24, 2026 |
+| [`custom/wine-and-paint-2026.html`](custom/wine-and-paint-2026.html) | Paint the Block, wine &amp; paint on Madroncillo St. — Nov 20, 2026 |
+| [`custom/seed-swap-2026.html`](custom/seed-swap-2026.html) | Seed Swap &amp; Winter Plant Start — Dec 19, 2026 |
+
+Each event detail page carries a hand-drawn SVG flyer, sized to a poster and
+themed to the event. Adding another event means three edits: a new page (copy
+`event-template.html`), an entry in the `events` array in `events.html`, and an
+entry in the `eventCatalog` in `register.html`.
 
 They share `assets/bhcc.css` (site chrome — header, footer, type, colour) and
 `assets/bhcc-pages.css` (components), both built from the live site's own

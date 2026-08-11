@@ -246,6 +246,18 @@
 .flag-mx .stripe:nth-child(2) { background: #fff; }
 .flag-mx .stripe:nth-child(3) { background: #ce1126; }
 
+.event-flyer { max-width: 1160px; margin: 0 auto; padding: 48px 40px 0; }
+.event-flyer svg { display: block; width: 100%; height: auto; max-width: 640px; margin: 0 auto; }
+.event-flyer figcaption {
+  margin-top: 14px;
+  text-align: center;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--blue-muted);
+}
+
 .event-content { max-width: 1160px; margin: 0 auto; padding: 56px 40px 0; display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(260px, 1fr); gap: 54px; align-items: start; }
 .event-main h2 { font-size: 27px; color: var(--blue); margin: 34px 0 14px; }
 .event-main h3 { font-size: 20px; color: var(--blue); margin: 28px 0 12px; }
@@ -313,7 +325,8 @@
 .share-btn svg { width: 17px; height: 17px; }
 
 @media (max-width: 860px) {
-  .tabs-container, .events-panel, .page-wrap, .event-content { padding-left: 22px; padding-right: 22px; }
+  .tabs-container, .events-panel, .page-wrap, .event-content, .event-flyer { padding-left: 22px; padding-right: 22px; }
+  .event-flyer { padding-top: 34px; }
   .page-title { padding: 52px 20px 46px; }
   .page-title h2 { font-size: 32px; }
   .events-grid { grid-template-columns: 1fr; gap: 26px; }
