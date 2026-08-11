@@ -47,6 +47,131 @@
     </div>
   </section>
 
+<figure class="event-flyer">
+  <svg viewBox="0 0 640 860" role="img" aria-labelledby="miTitle miDesc" xmlns="http://www.w3.org/2000/svg">
+    <title id="miTitle">Mexican Independence Day Celebration event flyer</title>
+    <desc id="miDesc">Papel picado banners over a warm sunset sky, with a folklórico dancer, guitar and maracas, and the event date and time.</desc>
+
+    <defs>
+      <linearGradient id="miSky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#00734d"/>
+        <stop offset="34%" stop-color="#3f8b63"/>
+        <stop offset="62%" stop-color="#e8a44a"/>
+        <stop offset="100%" stop-color="#ce1126"/>
+      </linearGradient>
+      <radialGradient id="miSun" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#ffe9a8" stop-opacity=".85"/>
+        <stop offset="100%" stop-color="#ffd257" stop-opacity="0"/>
+      </radialGradient>
+      <pattern id="miPapel" x="0" y="0" width="80" height="58" patternUnits="userSpaceOnUse">
+        <path d="M4 0h72v40l-36 16-36-16z" fill="#f9f7f4" opacity=".95"/>
+        <circle cx="40" cy="16" r="8" fill="none" stroke="#ce1126" stroke-width="3"/>
+        <circle cx="18" cy="28" r="4" fill="#00734d"/>
+        <circle cx="62" cy="28" r="4" fill="#00734d"/>
+        <path d="M40 30l6 8h-12z" fill="#e8a44a"/>
+      </pattern>
+    </defs>
+
+    <rect width="640" height="860" fill="url(#miSky)"/>
+    <circle cx="320" cy="560" r="230" fill="url(#miSun)"/>
+
+    <!-- papel picado -->
+    <g>
+      <path d="M0 22C120 78 240 78 360 34" stroke="#f9f7f4" stroke-width="3" fill="none" opacity=".85"/>
+      <path d="M360 34C460-4 560 6 640 48" stroke="#f9f7f4" stroke-width="3" fill="none" opacity=".85"/>
+      <rect x="0" y="30" width="640" height="58" fill="url(#miPapel)" opacity=".92"/>
+    </g>
+
+    <!-- type -->
+    <g font-family="Montserrat, Arial, sans-serif" text-anchor="middle">
+      <text x="320" y="146" font-size="16" letter-spacing="5" fill="#f6f1e6">BROADWAY HEIGHTS COMMUNITY COUNCIL</text>
+      <text x="320" y="234" font-size="70" font-weight="300" fill="#f9f7f4">¡VIVA</text>
+      <text x="320" y="308" font-size="70" font-weight="300" fill="#f9f7f4">MÉXICO!</text>
+      <line x1="214" y1="342" x2="426" y2="342" stroke="#f9f7f4" stroke-width="1.5" opacity=".8"/>
+      <text x="320" y="382" font-size="25" fill="#f6f1e6">Mexican Independence Day</text>
+      <text x="320" y="418" font-size="24" fill="#f9f7f4">Saturday · September 12 · 11 AM–3 PM</text>
+    </g>
+
+    <!-- promenade ground -->
+    <path d="M0 700h640v70H0z" fill="#7d3f2e" opacity=".55"/>
+
+    <!-- folklórico dancer -->
+    <g transform="translate(320 702)">
+      <defs>
+        <clipPath id="miSkirt">
+          <path d="M-126 0C-120-62-62-112 0-112S120-62 126 0Z"/>
+        </clipPath>
+      </defs>
+
+      <!-- arms reaching out to the skirt -->
+      <path d="M-24-150C-58-146-86-124-100-96" stroke="#8a5a3c" stroke-width="13" stroke-linecap="round" fill="none"/>
+      <path d="M24-150C58-146 86-124 100-96" stroke="#8a5a3c" stroke-width="13" stroke-linecap="round" fill="none"/>
+
+      <!-- skirt, banded in the flag colours -->
+      <g clip-path="url(#miSkirt)">
+        <rect x="-130" y="-114" width="260" height="40" fill="#f9f7f4"/>
+        <rect x="-130" y="-74" width="260" height="26" fill="#00734d"/>
+        <rect x="-130" y="-48" width="260" height="24" fill="#f9f7f4"/>
+        <rect x="-130" y="-24" width="260" height="26" fill="#ce1126"/>
+        <path d="M-130-76h260" stroke="#e8a44a" stroke-width="3"/>
+        <path d="M-130-26h260" stroke="#e8a44a" stroke-width="3"/>
+      </g>
+      <path d="M-126 0C-120-62-62-112 0-112S120-62 126 0Z" fill="none" stroke="#7d3f2e" stroke-width="2" opacity=".35"/>
+
+      <!-- ruffled hem -->
+      <g fill="#ce1126">
+        <path d="M-126 0a14 12 0 0 0 28 0zM-98 0a14 12 0 0 0 28 0zM-70 0a14 12 0 0 0 28 0zM-42 0a14 12 0 0 0 28 0zM-14 0a14 12 0 0 0 28 0zM14 0a14 12 0 0 0 28 0zM42 0a14 12 0 0 0 28 0zM70 0a14 12 0 0 0 28 0zM98 0a14 12 0 0 0 28 0z"/>
+      </g>
+
+      <!-- bodice -->
+      <path d="M-25-110C-31-144-22-166 0-166s31 22 25 56z" fill="#f9f7f4"/>
+      <path d="M-22-124h44" stroke="#e8a44a" stroke-width="3" opacity=".8"/>
+      <path d="M0-166c-9 0-16 6-19 15h38c-3-9-10-15-19-15z" fill="#f6f1e6"/>
+
+      <!-- head -->
+      <circle cx="0" cy="-186" r="19" fill="#8a5a3c"/>
+      <path d="M-19-188c-3-19 6-30 19-30s22 11 19 30c-4-9-11-13-19-13s-15 4-19 13z" fill="#2c1c14"/>
+      <circle cx="0" cy="-214" r="10" fill="#2c1c14"/>
+      <circle cx="-19" cy="-198" r="6" fill="#ce1126"/>
+      <circle cx="-19" cy="-198" r="2.4" fill="#e8a44a"/>
+    </g>
+
+    <!-- guitar -->
+    <g transform="translate(92 664) rotate(-15)">
+      <rect x="-6" y="-116" width="12" height="72" rx="2" fill="#7d4a26"/>
+      <rect x="-12" y="-130" width="24" height="18" rx="3" fill="#5b3520"/>
+      <path d="M0-50c24 0 36 16 36 33 0 12-7 19-7 29 0 21-13 36-29 36s-29-15-29-36c0-10-7-17-7-29 0-17 12-33 36-33z" fill="#c98548"/>
+      <path d="M0-50c24 0 36 16 36 33 0 12-7 19-7 29 0 21-13 36-29 36s-29-15-29-36c0-10-7-17-7-29 0-17 12-33 36-33z" fill="none" stroke="#7d4a26" stroke-width="2.5"/>
+      <circle cx="0" cy="14" r="11" fill="#3f2418"/>
+      <rect x="-13" y="36" width="26" height="5" rx="2" fill="#7d4a26"/>
+      <g stroke="#f6f1e6" stroke-width="1" opacity=".5">
+        <path d="M-4-44v82M0-44v82M4-44v82"/>
+      </g>
+    </g>
+
+    <!-- maracas -->
+    <g transform="translate(528 656) rotate(16)">
+      <rect x="-5" y="20" width="10" height="46" rx="5" fill="#7d4a26"/>
+      <ellipse cx="0" cy="0" rx="24" ry="28" fill="#e8a44a"/>
+      <path d="M-24 0a24 28 0 0 1 48 0z" fill="#ce1126" opacity=".75"/>
+      <circle cx="-9" cy="-9" r="4" fill="#f9f7f4" opacity=".6"/>
+    </g>
+    <g transform="translate(590 684) rotate(-14)">
+      <rect x="-4" y="17" width="8" height="40" rx="4" fill="#7d4a26"/>
+      <ellipse cx="0" cy="0" rx="20" ry="24" fill="#e8a44a"/>
+      <path d="M-20 0a20 24 0 0 1 40 0z" fill="#00734d" opacity=".7"/>
+      <circle cx="-7" cy="-8" r="3.4" fill="#f9f7f4" opacity=".6"/>
+    </g>
+
+    <rect x="0" y="770" width="640" height="90" fill="#2c5c7a"/>
+    <g font-family="Montserrat, Arial, sans-serif" text-anchor="middle" fill="#f9f7f4">
+      <text x="320" y="806" font-size="25">Food · live music · folklórico dancers · games</text>
+      <text x="320" y="838" font-size="14" letter-spacing="3" opacity=".9">MLK JR. PROMENADE · FREE · ALL MEANS ALL</text>
+    </g>
+  </svg>
+  <figcaption>Event flyer — share it with a neighbour</figcaption>
+</figure>
+
   <!-- Event Content -->
   <div class="event-content">
 
